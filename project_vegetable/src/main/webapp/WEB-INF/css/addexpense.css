@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mitr', sans-serif;
+ }
+ .main{
+ 	margin-top:150px;
+ }
+h3{  
+   color: rgb(255, 221, 0);
+   margin-bottom:10px;
+}
+.p2{
+   font-size: 20px;
+   margin: 10px;
+}
+.fit{
+   background-color: rgb(231, 231, 231);
+   border-radius: 8px;
+   padding: 20PX;
+   margin-left: 370px;
+   width: 640px;
+}
+ .form-floating{
+   margin: 10px;
+}
+.registered{
+   height: 55px;
+}
+.table-bordered{
+   width: 800px;
+}
+#table-bordered{
+	width: 200px;
+    height: 400px;
+    overflow:scroll;
+}
+.list{
+   margin-top: 50px;
+   margin-bottom: 100px;
+}

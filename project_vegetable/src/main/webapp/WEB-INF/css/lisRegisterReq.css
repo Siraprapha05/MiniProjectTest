@@ -1,0 +1,23 @@
+@charset "UTF-8";
+body{
+    font-family: 'Mitr', sans-serif;
+    position: relative;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mitr', sans-serif;
+ }
+ 
+ thead{
+    color: rgb(255, 255, 255);
+    background-color: #00AE3B;
+}
+p{
+    font-size: 25px;
+}
+.fit{
+	margin-top: 150px;
+	margin-bottom: 330px;
+}

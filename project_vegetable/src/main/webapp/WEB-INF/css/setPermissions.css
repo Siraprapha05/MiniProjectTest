@@ -1,0 +1,40 @@
+@charset "UTF-8";
+body{
+    font-family: 'Mitr', sans-serif;
+    
+}
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Mitr', sans-serif;
+}
+.fit{
+    margin-top: 200px;
+    margin-bottom:100px;
+}
+p{
+    font-size: 25px;
+    color:#FEC900;
+}
+.form-floating{
+    margin: 10px;
+}
+.registered{
+    height: 58px;
+}
+/*select{
+    padding:5px ;
+    height: 58px;
+    width: 250px;
+    border-radius: 5px;
+    margin-left:10px;
+}*/
+.btn{
+    height: 40px;
+    width: 200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    margin-bottom: 5px; 
+}
