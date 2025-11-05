@@ -1,8 +1,8 @@
 *** Variables ***
-${url}    http://localhost:8081/project_vegetable/goRegister
+${url}    http://localhost:8080/vegetable/goRegister
 ${browser}    chrome
 
-${DataTable}    Excel/Register.xlsx
+${DataTable}    ProjectTest65/Excel/Register.xlsx
 ${sheet}    Register
 ${row}    86
 

@@ -89,14 +89,14 @@ Handle Alert And Validate
         END
 
         Sleep    3s
-        ${status2}=    Set Variable    FAIL
+        ${status2}=    Set Variable    Fail
         ${alertMsg}=   Set Variable    ""
 
         ${status1}    ${msg1}=    Run Keyword And Ignore Error    Handle Alert    accept    4s
 
-        IF    '${status1}' == 'FAIL'
+        IF    '${status1}' == 'Fail'
             ${status2}    ${msg2}=    Run Keyword And Ignore Error    Handle Alert    accept    4s
-            IF    '${status2}' != 'FAIL'
+            IF    '${status2}' != 'Fail'
                 ${alertMsg}=    Set Variable    ${msg2}
             END
         ELSE
@@ -105,7 +105,7 @@ Handle Alert And Validate
 
         IF    '${alertMsg}' == ''
             ${statusMsg}    ${pageMsg}=    Run Keyword And Ignore Error    Get Text    xpath=//div[contains(@class,"bg-light")]/b/p
-            IF    '${statusMsg}' == 'FAIL'
+            IF    '${statusMsg}' == 'Fail'
                 ${alertMsg}=    Set Variable    เข้าสู่ระบบสำเร็จ
             ELSE
                 ${alertMsg}=    Set Variable    ${pageMsg}
@@ -116,11 +116,11 @@ Handle Alert And Validate
 
         IF    '${alertMsg}' == 'เข้าสู่ระบบสำเร็จ'
             Write Excel Cell    ${i}    7    Pass
-        ELSE IF    '${Expec}' == '${alertMsg}' or '${status1}' == 'PASS' or '${status2}' == 'PASS'
+        ELSE IF    '${Expec}' == '${alertMsg}' or '${status1}' == 'Pass' or '${status2}' == 'Pass'
             Write Excel Cell    ${i}    7    Pass
         ELSE
             Write Excel Cell    ${i}    7    Fail
-            Capture Page Screenshot    imgLogin/error_${i}.png
+            Capture Page Screenshot    ProjectTest65/imgLogin/error_${i}.png
         END
 
 Browser Close

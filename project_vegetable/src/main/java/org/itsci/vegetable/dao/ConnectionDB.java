@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionDB {
-    String url = "jdbc:mysql://localhost:3306/project_vegetable?characterEncoding=UTF-8";
+    String url = "jdbc:mysql://mysql:3306/project_vegetable?characterEncoding=UTF-8";
     String uname = "root";
     String pwd = "1234";
 

@@ -73,7 +73,7 @@ Handle Alert And Validate
         Write Excel Cell    ${i}    9    Pass
     ELSE
         Write Excel Cell    ${i}    9    Fail
-        Capture Page Screenshot    imgAddIncome/error_${i}.png
+        Capture Page Screenshot    ProjectTest65/imgAddIncome/error_${i}.png
     END
 
 

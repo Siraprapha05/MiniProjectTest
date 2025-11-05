@@ -1,8 +1,8 @@
 *** Variables ***
-${url}    http://localhost:8081/project_vegetable/goLogin
+${url}    http://localhost:8080/vegetable/goLogin
 ${browser}    chrome
 
-${DataTable}    Excel/Login.xlsx
+${DataTable}    ProjectTest65/Excel/Login.xlsx
 ${sheet}    Login
 ${row}    12
 

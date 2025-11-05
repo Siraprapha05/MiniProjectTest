@@ -102,18 +102,18 @@ Handle Alert And Validate
 
     Sleep    2s
     ${status}    ${result}=    Run Keyword And Ignore Error     Handle Alert    accept    4s
-    Run Keyword If    '${status}' == 'PASS'    Write Excel Cell    ${i}    8    ${result} 
+    Run Keyword If    '${status}' == 'Pass'    Write Excel Cell    ${i}    8    ${result} 
     
     ${locators}=    Create List
     ...    ${alertName}    ${alertPhone}
     ${alert_text}=    Get Visible Alert    ${locators}
-    Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${i}    8    ${alert_text}
+    Run Keyword If    '${status}' != 'Pass'    Write Excel Cell    ${i}    8    ${alert_text}
 
     IF    '${Expec}' in ['${result}', '${alert_text}']
         Write Excel Cell    ${i}    9    Pass
     ELSE
         Write Excel Cell    ${i}    9    Fail
-        Capture Page Screenshot    imgEditProfile/error_${i}.png
+        Capture Page Screenshot    ProjectTest65/imgEditProfile/error_${i}.png
     END
 
 

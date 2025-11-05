@@ -141,7 +141,7 @@ Handle Alert And Validate
         Write Excel Cell    ${i}    15    Pass
     ELSE
         Write Excel Cell    ${i}    15    Fail
-        Capture Page Screenshot    imgRegister/error_${i}.png
+        Capture Page Screenshot    ProjectTest65/imgRegister/error_${i}.png
     END
 
 Browser Close

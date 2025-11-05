@@ -139,7 +139,7 @@ Handle Alert And Validate
             Write Excel Cell    ${i}    11    Pass
         ELSE
             Write Excel Cell    ${i}    11    Fail
-            Capture Page Screenshot    imgAddShift/error_${i}.png
+            Capture Page Screenshot    ProjectTest65/imgAddShift/error_${i}.png
         END
 
 
