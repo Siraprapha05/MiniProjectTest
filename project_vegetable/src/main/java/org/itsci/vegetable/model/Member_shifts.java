@@ -1,6 +1,7 @@
 package org.itsci.vegetable.model;
 
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="member_shifts")
@@ -22,7 +25,8 @@ private String member_shift_id;
 private String task_name;
 
 @Column (name="date",nullable=false)
-private Calendar date;
+@Temporal(TemporalType.DATE)
+private Date date;
 
 @Column (name="startTime",nullable=false)
 private Calendar startTime;
@@ -42,7 +46,7 @@ public Member_shifts() {
 	// TODO Auto-generated constructor stub
 }
 
-public Member_shifts(String member_shift_id, String task_name, Calendar date, Calendar startTime, Calendar endTime,
+public Member_shifts(String member_shift_id, String task_name, Date date, Calendar startTime, Calendar endTime,
 		int status, org.itsci.vegetable.model.Register register) {
 	super();
 	this.member_shift_id = member_shift_id;
@@ -77,11 +81,11 @@ public void setTask_name(String task_name) {
 	this.task_name = task_name;
 }
 
-public Calendar getDate() {
+public Date getDate() {
 	return date;
 }
 
-public void setDate(Calendar date) {
+public void setDate(Date date) {
 	this.date = date;
 }
 

@@ -86,7 +86,7 @@ public class MembersController {
        Register r = new Register();
        r.setRegister_id(register_id);
         
-        Member_shifts ms = new Member_shifts(msid,task_name,cal_date,cal,cal_e_date,0,r);
+        Member_shifts ms = new Member_shifts(msid,task_name,cal_date.getTime(),cal,cal_e_date,0,r);
    
         MembershiftManager msm = new MembershiftManager();
 		rr=msm.insertShift(ms);
@@ -107,8 +107,7 @@ public class MembersController {
 	public String golistShift(HttpServletRequest request,HttpSession session) {
 	return "listShift";
 	}
-	
-	
+		
 	@RequestMapping(value="/approveShift", method=RequestMethod.GET)
 	public String goapproveShift(HttpServletRequest request,HttpSession session) {
 		String mid = request.getParameter("id");
@@ -161,7 +160,7 @@ public class MembersController {
        Register rg = new Register();
        rg.setRegister_id(register_id);
         
-        Member_shifts ms = new Member_shifts(msid,task_name,cal_date,cal,cal_e_date,1,rg);
+        Member_shifts ms = new Member_shifts(msid,task_name,cal_date.getTime(),cal,cal_e_date,1,rg);
    
         
         MembershiftManager msm = new MembershiftManager();

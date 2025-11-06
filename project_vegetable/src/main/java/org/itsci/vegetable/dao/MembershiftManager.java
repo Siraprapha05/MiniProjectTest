@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -19,11 +20,11 @@ public class MembershiftManager {
 		Connection con = condb.getConnection();
 		//register reg = new register();
 		try {
-			Calendar bd = ms.getDate();
+			Date bd = ms.getDate();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			SimpleDateFormat stf = new SimpleDateFormat("HH:mm");
 	        //sdf.setTimeZone(TimeZone.getTimeZone("GMT+7"));
-	        String  dateshift =  sdf.format(bd.getTime());
+	        String  dateshift =  sdf.format(bd);
 	        
 	        Calendar st = ms.getStartTime();	
 	        String  startTime =  stf.format(st.getTime());
@@ -97,13 +98,14 @@ public class MembershiftManager {
                 String task_name = rs.getString(6);
                 String register_id = rs.getString(7);
                  
-				Calendar sdate = Calendar.getInstance();
+				Calendar sdate_cal = Calendar.getInstance();
                 Calendar stime = Calendar.getInstance(); 
 				Calendar etime = Calendar.getInstance();
 				
 				String date1[] = date.split("-");
 				date1[2] = date1[2].split(" ")[0];
-				sdate.set(Integer.parseInt(date1[0]), Integer.parseInt(date1[1])-1, Integer.parseInt(date1[2]));
+				sdate_cal.set(Integer.parseInt(date1[0]), Integer.parseInt(date1[1])-1, Integer.parseInt(date1[2]));
+				Date sdate = sdate_cal.getTime(); // Convert Calendar to Date
 				
 				String date4[] = endTime.split(":");
 				int eth = Integer.parseInt( date4[0]);
@@ -156,12 +158,13 @@ public class MembershiftManager {
                String task_name = rs.getString(6);
                String register_id = rs.getString(7);
                 
-				Calendar sdate = Calendar.getInstance();
+				Calendar sdate_cal = Calendar.getInstance();
                Calendar stime = Calendar.getInstance(); 
 				Calendar etime = Calendar.getInstance();
 				
 				String date1[] = date.split("-");
-						sdate.set(Integer.parseInt(date1[0]), Integer.parseInt(date1[1])-1, Integer.parseInt(date1[2]));
+						sdate_cal.set(Integer.parseInt(date1[0]), Integer.parseInt(date1[1])-1, Integer.parseInt(date1[2]));
+				Date sdate = sdate_cal.getTime(); // Convert Calendar to Date
 				
 				String date4[] = endTime.split(":");
 				int eth = Integer.parseInt( date4[0]);
@@ -210,12 +213,13 @@ public class MembershiftManager {
                 String task_name = rs.getString(6);
                 String register_id = rs.getString(7);
                  
- 				Calendar sdate = Calendar.getInstance();
+ 				Calendar sdate_cal = Calendar.getInstance();
                 Calendar stime = Calendar.getInstance(); 
  				Calendar etime = Calendar.getInstance();
  				
  				String date1[] = date.split("-");
-				sdate.set(Integer.parseInt(date1[0]), Integer.parseInt(date1[1])-1, Integer.parseInt(date1[2]));
+				sdate_cal.set(Integer.parseInt(date1[0]), Integer.parseInt(date1[1])-1, Integer.parseInt(date1[2]));
+				Date sdate = sdate_cal.getTime(); // Convert Calendar to Date
 		
 				String date4[] = endTime.split(":");
 				int eth = Integer.parseInt( date4[0]);
