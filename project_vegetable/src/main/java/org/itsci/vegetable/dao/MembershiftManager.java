@@ -20,19 +20,17 @@ public class MembershiftManager {
 		Connection con = condb.getConnection();
 		//register reg = new register();
 		try {
-			Date bd = ms.getDate();
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			SimpleDateFormat stf = new SimpleDateFormat("HH:mm");
-	        //sdf.setTimeZone(TimeZone.getTimeZone("GMT+7"));
-	        String  dateshift =  sdf.format(bd);
-	        
-	        Calendar st = ms.getStartTime();	
-	        String  startTime =  stf.format(st.getTime());
-	        
-	        Calendar et = ms.getEndTime();
-	        String  endTime =  stf.format(et.getTime());
-	     
-			Statement stmt = con.createStatement();
+		Date bd = ms.getDate();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat stf = new SimpleDateFormat("HH:mm");
+        //sdf.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+        String  dateshift =  sdf.format(bd);
+        
+        Date st = ms.getStartTime();	
+        String  startTime =  stf.format(st);
+        
+        Date et = ms.getEndTime();
+        String  endTime =  stf.format(et);			Statement stmt = con.createStatement();
 			String sql = "insert into member_shifts(member_shift_id,date,endTime,startTime,status,task_name,register_id)"
 					+ "values('"+ms.getMember_shift_id()+"','"
 								+dateshift+"','"
@@ -56,14 +54,12 @@ public class MembershiftManager {
 		Connection con = condb.getConnection();
 		
 		try {	
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			SimpleDateFormat stf = new SimpleDateFormat("HH:mm");
-	        sdf.setTimeZone(TimeZone.getTimeZone("GMT+7"));
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat stf = new SimpleDateFormat("HH:mm");
+        sdf.setTimeZone(TimeZone.getTimeZone("GMT+7"));
 
-	        Calendar et = ms.getEndTime();
-	        String  endTime =  stf.format(et.getTime());
-	     
-			Statement stmt = con.createStatement();
+        Date et = ms.getEndTime();
+        String  endTime =  stf.format(et);			Statement stmt = con.createStatement();
 			String sql = "update member_shifts "
 					+ "set status = "+ms.getStatus()+","
 					+ "endTime = '"+endTime+"',"
@@ -112,16 +108,18 @@ public class MembershiftManager {
 				int etm = Integer.parseInt( date4[1]);
 						 etime.set(Calendar.HOUR,eth);
 						 etime.set(Calendar.MINUTE,etm);
+				Date endTimeDate = etime.getTime(); // Convert Calendar to Date
 						 
 				String date5[] = startTime.split(":");
 				int sth = Integer.parseInt( date5[0]);
 				int stm = Integer.parseInt( date5[1]);
 						 stime.set(Calendar.HOUR,sth);
 						 stime.set(Calendar.MINUTE,stm);
+				Date startTimeDate = stime.getTime(); // Convert Calendar to Date
 						 
               Register reg = new Register();
               reg.setRegister_id(register_id);
-                Member_shifts st = new Member_shifts(member_shift_id,task_name,sdate,stime,etime,status,reg);
+                Member_shifts st = new Member_shifts(member_shift_id,task_name,sdate,startTimeDate,endTimeDate,status,reg);
 
                 list.add(st);
             }
@@ -177,10 +175,12 @@ public class MembershiftManager {
 				int stm = Integer.parseInt( date5[1]);
 						 stime.set(Calendar.HOUR,sth);
 						 stime.set(Calendar.MINUTE,stm);
+				Date startTimeDate = stime.getTime(); // Convert Calendar to Date
+				Date endTimeDate = etime.getTime(); // Convert Calendar to Date
 						 
              Register reg = new Register();
              reg.setRegister_id(register_id);
-               Member_shifts st = new Member_shifts(member_shift_id,task_name,sdate,stime,etime,status,reg);
+               Member_shifts st = new Member_shifts(member_shift_id,task_name,sdate,startTimeDate,endTimeDate,status,reg);
 
                list.add(st);
            }
@@ -227,24 +227,24 @@ public class MembershiftManager {
 						 etime.set(Calendar.HOUR,eth);
 						 etime.set(Calendar.MINUTE,etm);
 						 
-				String date5[] = startTime.split(":");
-				int sth = Integer.parseInt( date5[0]);
-				int stm = Integer.parseInt( date5[1]);
-						 stime.set(Calendar.HOUR,sth);
-						 stime.set(Calendar.MINUTE,stm);
-              Register reg = new Register();
-              reg.setRegister_id(register_id);
-                st = new Member_shifts(member_shift_id,task_name,sdate,stime,etime,status,reg);
+			String date5[] = startTime.split(":");
+			int sth = Integer.parseInt( date5[0]);
+			int stm = Integer.parseInt( date5[1]);
+					 stime.set(Calendar.HOUR,sth);
+					 stime.set(Calendar.MINUTE,stm);
+			Date startTimeDate = stime.getTime(); // Convert Calendar to Date
+			Date endTimeDate = etime.getTime(); // Convert Calendar to Date
+          Register reg = new Register();
+          reg.setRegister_id(register_id);
+            st = new Member_shifts(member_shift_id,task_name,sdate,startTimeDate,endTimeDate,status,reg);
 
-            }
-
-            con.close();
-        }catch(SQLException e){
-            e.printStackTrace();
         }
 
-        return st;
+        con.close();
+    }catch(SQLException e){
+        e.printStackTrace();
+    }
 
-
+    return st;
     }
 }

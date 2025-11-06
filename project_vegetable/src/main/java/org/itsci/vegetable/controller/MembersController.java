@@ -86,7 +86,7 @@ public class MembersController {
        Register r = new Register();
        r.setRegister_id(register_id);
         
-        Member_shifts ms = new Member_shifts(msid,task_name,cal_date.getTime(),cal,cal_e_date,0,r);
+        Member_shifts ms = new Member_shifts(msid,task_name,cal_date.getTime(),cal.getTime(),cal_e_date.getTime(),0,r);
    
         MembershiftManager msm = new MembershiftManager();
 		rr=msm.insertShift(ms);
@@ -160,7 +160,7 @@ public class MembersController {
        Register rg = new Register();
        rg.setRegister_id(register_id);
         
-        Member_shifts ms = new Member_shifts(msid,task_name,cal_date.getTime(),cal,cal_e_date,1,rg);
+        Member_shifts ms = new Member_shifts(msid,task_name,cal_date.getTime(),cal.getTime(),cal_e_date.getTime(),1,rg);
    
         
         MembershiftManager msm = new MembershiftManager();
@@ -199,7 +199,7 @@ public class MembersController {
 	
        
         
-        Member_shifts ms = new Member_shifts(msid,task_name,cal_e_date,3);
+        Member_shifts ms = new Member_shifts(msid,task_name,cal_e_date.getTime(),3);
    
         
         MembershiftManager msm = new MembershiftManager();

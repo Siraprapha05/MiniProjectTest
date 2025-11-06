@@ -1,6 +1,5 @@
 package org.itsci.vegetable.model;
 
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -29,10 +28,12 @@ private String task_name;
 private Date date;
 
 @Column (name="startTime",nullable=false)
-private Calendar startTime;
+@Temporal(TemporalType.TIME)
+private Date startTime;
 
 @Column (name="endTime",nullable=false)
-private Calendar endTime;
+@Temporal(TemporalType.TIME)
+private Date endTime;
 
 @Column (name="status",nullable=false)
 private int status;
@@ -46,7 +47,7 @@ public Member_shifts() {
 	// TODO Auto-generated constructor stub
 }
 
-public Member_shifts(String member_shift_id, String task_name, Date date, Calendar startTime, Calendar endTime,
+public Member_shifts(String member_shift_id, String task_name, Date date, Date startTime, Date endTime,
 		int status, org.itsci.vegetable.model.Register register) {
 	super();
 	this.member_shift_id = member_shift_id;
@@ -57,7 +58,7 @@ public Member_shifts(String member_shift_id, String task_name, Date date, Calend
 	this.status = status;
 	this.register = register;
 }
-public Member_shifts(String member_shift_id, String task_name, Calendar endTime,int status) {
+public Member_shifts(String member_shift_id, String task_name, Date endTime,int status) {
 	super();
 	this.member_shift_id = member_shift_id;
 	this.task_name = task_name;
@@ -89,19 +90,19 @@ public void setDate(Date date) {
 	this.date = date;
 }
 
-public Calendar getStartTime() {
+public Date getStartTime() {
 	return startTime;
 }
 
-public void setStartTime(Calendar startTime) {
+public void setStartTime(Date startTime) {
 	this.startTime = startTime;
 }
 
-public Calendar getEndTime() {
+public Date getEndTime() {
 	return endTime;
 }
 
-public void setEndTime(Calendar endTime) {
+public void setEndTime(Date endTime) {
 	this.endTime = endTime;
 }
 
