@@ -10,22 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.itsci.vegetable.model.Logins;
 import org.itsci.vegetable.dao.LoginManager;
 
-
-
-
 @Controller
 public class LoginController {
-	@RequestMapping(value="/goHomepage", method=RequestMethod.GET )
-    public String goHomepage(){ 
-        return"content";
-        }
-	@RequestMapping(value="/goLogin", method=RequestMethod.GET )
-    public String goLogin(){ 
-        return"login";
+	@RequestMapping(value = "/goHomepage", method = RequestMethod.GET)
+	public String goHomepage() {
+		return "content";
 	}
-       
-	@RequestMapping(value="/isMemberLogin", method=RequestMethod.POST)
-	public String memberLogin(HttpServletRequest request,HttpSession session) {
+
+	@RequestMapping(value = "/goLogin", method = RequestMethod.GET)
+	public String goLogin() {
+		return "login";
+	}
+
+	@RequestMapping(value = "/isMemberLogin", method = RequestMethod.POST)
+	public String memberLogin(HttpServletRequest request, HttpSession session) {
 		try {
 			request.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e1) {
@@ -37,29 +35,27 @@ public class LoginController {
 		LoginManager lm = new LoginManager();
 		Logins log = lm.verifyLogin(email, password);
 		session.setMaxInactiveInterval(60 * 60);
-		
-		if(log == null) {
+
+		if (log == null) {
 			request.setAttribute("result", "Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง");
-			return "login"; 
-		}
-		else {
-			if(log.getStatus()==0) {		
-				session.setAttribute("login", log);	
-				return "login"; 
-			}else {
+			return "login";
+		} else {
+			if (log.getStatus() == 0) {
+				session.setAttribute("login", log);
+				return "login";
+			} else {
 				session.setAttribute("login", log);
 				return "content";
 			}
-				/*login pass*/
-				
+			/* login pass */
+
 		}
 	}
-	
-	@RequestMapping(value="/dologout", method=RequestMethod.GET)
-	public String dologout(HttpServletRequest request,HttpSession session) {
-			session.removeAttribute("login");
-			session.removeAttribute("ListTran");
+
+	@RequestMapping(value = "/dologout", method = RequestMethod.GET)
+	public String dologout(HttpServletRequest request, HttpSession session) {
+		session.removeAttribute("login");
+		session.removeAttribute("ListTran");
 		return "content";
 	}
 }
-	 
