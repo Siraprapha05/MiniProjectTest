@@ -6,7 +6,7 @@ Resource    ../Variables/addIncomeVar.robot
 *** Keywords ***
 Launch Browser and Navigate to Url
     Open Browser   ${url}   ${browser}
-    Set Selenium Speed    0.3s
+    # Set Selenium Speed    1s
     Maximize Browser Window
 
 Launch Excel
@@ -34,8 +34,8 @@ Button Click Login
     Sleep    1s
 
 Click Income Link
-    Mouse Over    ${MouseOver}
-    Wait Until Element Is Visible    ${clickLink}    10s
+    Mouse Over    ${MouseOver}    
+    Wait Until Element Is Visible    ${clickLink}    5s
     Click Element    ${clickLink}
     
     
@@ -45,7 +45,7 @@ Select Ordet name
         ${ProductName}    Evaluate    str("${ProductName}").strip()
         Wait Until Page Contains    ชื่อสินค้า
         Scroll Element Into View    ${locProductName}
-        Wait Until Element Is Visible    ${locProductName}    2s
+        Wait Until Element Is Visible    ${locProductName}    1s    
         Run Keyword And Ignore Error    
         ...    Select From List By Label    ${locProductName}    ${ProductName}
   
@@ -71,88 +71,16 @@ Button Click
     RETURN    ${ActualResult1}    ${ActualResult2}
 
 
-# กรอกข้อมูลแล้วกดบันทึก
-# Handle Alert And Validate
-#     [Arguments]    ${i}
-#     ${Expec}=    Read Excel Cell    ${i}    7
-
-#     ${sumStatus}    ${sumMsg}=    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${locSum}    5s
-#     IF    '${sumStatus}' == 'PASS'
-#         ${sumValue}=    Get Value    ${locSum}
-#         Write Excel Cell    ${i}    8    ${sumValue}
-#     END
-
-#     ${Actual}=    Read Excel Cell    ${i}    8
-#     IF    '${Expec}' == '${Actual}'
-#         Write Excel Cell    ${i}    9    Pass
-#     ELSE
-#         Write Excel Cell    ${i}    9    Fail
-#         Capture Page Screenshot    ProjectTest65/imgAddIncome/error_${i}.png
-#     END
-
-
-# Handle Alert And Validate
-#     [Arguments]    ${i}
-#     ${Expec}=    Read Excel Cell    ${i}    7
-
-#     ${locAssetPrice}=    Set Variable    //input[@id="asset_price"]
-#     ${locSum}=           Set Variable    //input[@id="sum"]
-#     ${locAlertProduct}=  Set Variable    //label[@id="alertProduct_name"]
-#     ${locAlertAmount}=   Set Variable    //label[@id="alertAmount"]
-
-#     # ตรวจ element input ว่ามีไหม
-#     ${assetStatus}    ${assetMsg}=    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${locAssetPrice}    5s
-#     ${sumStatus}      ${sumMsg}=      Run Keyword And Ignore Error    Wait Until Element Is Visible    ${locSum}       5s
-
-#     IF    $assetStatus != 'Pass' or ${sumStatus} != 'Pass'
-#         ${Alertmsg}=    Set Variable    HTTP Status 500 – Internal Server Error
-#         Write Excel Cell    ${i}    8    ${Alertmsg}
-#         Write Excel Cell    ${i}    9    Fail
-#         Log To Console    Row ${i}: Input elements missing, skipping
-#         RETURN
-#     END
-#     ${ActualAssetPrice}=    Get Value    ${locAssetPrice}
-
-#     IF    '${Expec}' == '${ActualAssetPrice}' 
-#         Write Excel Cell    ${i}    9    Pass
-#     ELSE
-#         Write Excel Cell    ${i}    9    Fail
-#         Capture Page Screenshot    ProjectTest65/imgAddIncome/error_${i}.png
-#     END
-
-
-Get Visible Alert
-    [Arguments]    ${locators}
-    FOR    ${loc}    IN    @{locators}
-        ${status}    Run Keyword And Return Status    Wait Until Element Is Visible    ${loc}    2s
-        IF    ${status}
-            ${msg}    Get Text    ${loc}
-            RETURN     ${msg}
-        END
-    END
-    RETURN     NONE
-
 Handle Alert And Validate
     [Arguments]    ${i}
+    ${Expec}    Read Excel Cell    ${i}    7
+    
+    ${ActualResult1}    Get Value    //input[@id="asset_price"]
+    ${ActualResult2}    Get Value     //input[@id="sum"]
+    Write Excel Cell    ${i}    8    ${ActualResult1}
+    Write Excel Cell    ${i}    8    ${ActualResult2}
 
-    ${Expec}=     Read Excel Cell    ${i}    7
-
-    # กำหนด locators ของ alert
-    ${locAlertProduct}=  Set Variable    //label[@id="alertProduct_name"]
-    ${locAlertAmount}=   Set Variable    //label[@id="alertAmount"]
-    ${locators}=    Create List    ${locAlertProduct}    ${locAlertAmount}
-
-    # จับ alert ของ browser
-    ${status}    ${result}=    Run Keyword And Ignore Error    Handle Alert    accept    4s
-    Run Keyword If    '${status}'=='PASS'    Write Excel Cell    ${i}    8    ${result}
-
-    # ตรวจสอบข้อความ alert element บนหน้า
-    ${alert_text}=    Get Visible Alert    ${locators}
-    Run Keyword If    '${status}'!='PASS' and '${alert_text}' != 'NONE'    Write Excel Cell    ${i}    8    ${alert_text}
-
-    # ตรวจสอบค่าที่คาดหวัง
-    ${match}=    Run Keyword And Return Status    Should Be True    '${Expec}' == '${result}' or '${Expec}' == '${alert_text}'
-    IF    ${match}
+    IF    '${Expec}' == '${ActualResult1}' or '${Expec}' == '${ActualResult2}'
         Write Excel Cell    ${i}    9    Pass
     ELSE
         Write Excel Cell    ${i}    9    Fail
@@ -160,9 +88,50 @@ Handle Alert And Validate
     END
 
 
+Error Msg
+    [Arguments]    ${i}
+    ${ExpectedResult}=    Read Excel Cell    ${i}    7
+    ${ActualResult}=    Set Variable    ${EMPTY}
+
+    ${is_error_product}=    Run Keyword And Return Status
+    ...    Page Should Contain Element    //label[@id='alertProduct_name']
+
+    ${is_error_amount}=    Run Keyword And Return Status
+    ...    Page Should Contain Element    //label[@id='alertAmount']
+
+    IF    '${ExpectedResult}' == 'กรุณาเลือกสินค้า, กรุณากรอกจำนวน'
+        IF    ${is_error_product} and ${is_error_amount}
+            ${ActualResult}=    Set Variable    กรุณาเลือกสินค้า, กรุณากรอกจำนวน
+        END
+    ELSE IF    '${ExpectedResult}' == 'กรุณาเลือกสินค้า'
+        IF    ${is_error_product}
+            ${ActualResult}=    Set Variable    กรุณาเลือกสินค้า
+        END
+    ELSE IF    '${ExpectedResult}' == 'กรุณากรอกจำนวน'
+        IF    ${is_error_amount}
+            ${ActualResult}=    Set Variable    กรุณากรอกจำนวน
+        END
+    END
+
+    Write Excel Cell    ${i}    8    ${ActualResult}
+
+
+Verify
+    [Arguments]    ${i}    
+    ${ActualResult}    Read Excel Cell    ${i}    8
+    ${ExpectedResult}=    Read Excel Cell    ${i}    7    
+    
+    IF    '${ActualResult}' == '${ExpectedResult}'
+
+        Write Excel Cell    ${i}    9    Pass
+    ELSE
+        Write Excel Cell    ${i}    9    Fail
+        Capture Page Screenshot    ProjectTest65/imgAddIncome/error_${i}.png
+    END
+
 
 Browser Close
-    Sleep    3s
+    Sleep    2s
     Close Browser
     
 Save And Close Excel

@@ -16,11 +16,11 @@ ${locAmount}    //input[@id="amount"]
 
 
 ${locAssetPrice}    //input[@id="asset_price"]
-${locSum}    //input[@id="sum"]
+${locSum}    //input[@id='sum']
 
 ${butSubmit}    //input[@class="btn btn-success"]
 
 
-# alert
-${locAlertProduct}    //label[@id='alertProduct_name']
-${locAlertAmount}    //label[@id='alertAmount']
+# # alert
+# ${locAlertProduct}    //div/table/tbody/tr[3]/td/label
+# ${locAlertAmount}    //label[contains(text(),'กรุณากรอกจำนวน')][1]

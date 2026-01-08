@@ -5,7 +5,7 @@ Resource    ../Variables/addIncomeVar.robot
 Resource    ../Keyword/addIncomeKey.robot
 
 *** Test Cases ***
-Test Add Shift 
+Test Add Income
     Launch Excel
     FOR    ${i}    IN RANGE    2    ${row}+1
        ${status}    Read Excel Cell    ${i}    1 
@@ -15,9 +15,11 @@ Test Add Shift
             Button Click Login
             Click Income Link
             Select Ordet name    ${i}
-            Input Amount    ${i}            
+            Input Amount    ${i}          
             Handle Alert And Validate    ${i}
-            Button Click
+            # Error     ${i}
+            Verify    ${i}
+            Button Click    
             Browser Close  
        END
     END
