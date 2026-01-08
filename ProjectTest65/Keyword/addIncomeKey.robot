@@ -59,62 +59,103 @@ Input Amount
         Input Text    ${locAmount}    ${amount}
 
 
-Button Click
-    ${ActualResult1}    Get Value    ${locAssetPrice}
-    ${ActualResult2}    Get Value    ${locSum}
+# Button Click
+#     # ${ActualResult1}    Get Value    ${locAssetPrice}
+#     ${ActualResult1}    Get Value    ${locSum}
 
+#     ${submit_button}    Get WebElement    //div[@class="list"]
+#     Scroll Element Into View    ${submit_button}
+#     Sleep    1s
+#     # Execute Javascript    document.getElementById("add").click()
+#     Click Element    //input[@id='add']
+
+#     RETURN    ${ActualResult1}
+
+Button Click
     ${submit_button}    Get WebElement    //div[@class="list"]
     Scroll Element Into View    ${submit_button}
-    Sleep    1s
-    Execute Javascript    document.getElementById("add").click()
-
-    RETURN    ${ActualResult1}    ${ActualResult2}
+    Sleep    2s
+    Click Element    //input[@id='add']
 
 
 Handle Alert And Validate
     [Arguments]    ${i}
     ${Expec}    Read Excel Cell    ${i}    7
+    ${ActualResult1}    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible    //input[@id='sum']    timeout=5s
     
-    ${ActualResult1}    Get Value    //input[@id="asset_price"]
-    ${ActualResult2}    Get Value     //input[@id="sum"]
-    Write Excel Cell    ${i}    8    ${ActualResult1}
-    Write Excel Cell    ${i}    8    ${ActualResult2}
-
-    IF    '${Expec}' == '${ActualResult1}' or '${Expec}' == '${ActualResult2}'
-        Write Excel Cell    ${i}    9    Pass
-    ELSE
-        Write Excel Cell    ${i}    9    Fail
-        Capture Page Screenshot    ProjectTest65/imgAddIncome/error_${i}.png
+    IF    ${ActualResult1}
+        ${ActualResult1}    Get Value    //input[@id='sum']
+        Write Excel Cell    ${i}    8    ${ActualResult1}
     END
 
-
+# แก้ไขตรง Write Excel Cell มันเขียนทับ Error Msg
 Error Msg
     [Arguments]    ${i}
     ${ExpectedResult}=    Read Excel Cell    ${i}    7
     ${ActualResult}=    Set Variable    ${EMPTY}
 
     ${is_error_product}=    Run Keyword And Return Status
-    ...    Page Should Contain Element    //label[@id='alertProduct_name']
+    ...    Page Should Contain Element    css:#alertProduct_name
+    Scroll Element Into View    //input[@id='add']
+    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible    css:#alertProduct_name    5s
+    IF     ${is_error_product}
+        ${ActualResult}    Get Text    css:#alertProduct_name
+        Write Excel Cell    ${i}    8    ${ActualResult}
+    END
 
-    ${is_error_amount}=    Run Keyword And Return Status
-    ...    Page Should Contain Element    //label[@id='alertAmount']
+    # ${is_error_amount}=    Run Keyword And Return Status
+    # ...    Page Should Contain Element    //label[@id='alertAmount']
 
-    IF    '${ExpectedResult}' == 'กรุณาเลือกสินค้า, กรุณากรอกจำนวน'
+    # IF    '${ExpectedResult}' == 'กรุณาเลือกสินค้า, กรุณากรอกจำนวน'
+    #     IF    ${is_error_product} and ${is_error_amount}
+    #         ${ActualResult}=    Set Variable    กรุณาเลือกสินค้า, กรุณากรอกจำนวน
+    #     END
+    # ELSE IF    '${ExpectedResult}' == 'กรุณาเลือกสินค้า'
+    #     IF    ${is_error_product}
+    #         ${ActualResult}=    Set Variable    กรุณาเลือกสินค้า
+    #     END
+    # ELSE IF    '${ExpectedResult}' == 'กรุณากรอกจำนวน'
+    #     IF    ${is_error_amount}
+    #         ${ActualResult}=    Set Variable    กรุณากรอกจำนวน
+    #     END
+    # END
+
+    # Write Excel Cell    ${i}    8    ${ActualResult}
+
+
+
+Get Actual Result
+    [Arguments]    ${i}
+
+    ${ActualResult}=    Set Variable    ${EMPTY}
+
+    # กรณี Success (มี sum)
+    ${is_success}=    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible    //input[@id='sum']    3s
+
+    IF    ${is_success}
+        ${ActualResult}=    Get Value    //input[@id='sum']
+    ELSE
+        # ตรวจ error สินค้า
+        ${is_error_product}=    Run Keyword And Return Status
+        ...    Page Should Contain Element    css:#alertProduct_name
+
+        # ตรวจ error จำนวน
+        ${is_error_amount}=    Run Keyword And Return Status
+        ...    Page Should Contain Element    css:#alertAmount
+
         IF    ${is_error_product} and ${is_error_amount}
             ${ActualResult}=    Set Variable    กรุณาเลือกสินค้า, กรุณากรอกจำนวน
-        END
-    ELSE IF    '${ExpectedResult}' == 'กรุณาเลือกสินค้า'
-        IF    ${is_error_product}
-            ${ActualResult}=    Set Variable    กรุณาเลือกสินค้า
-        END
-    ELSE IF    '${ExpectedResult}' == 'กรุณากรอกจำนวน'
-        IF    ${is_error_amount}
-            ${ActualResult}=    Set Variable    กรุณากรอกจำนวน
+        ELSE IF    ${is_error_product}
+            ${ActualResult}=    Get Text    css:#alertProduct_name
+        ELSE IF    ${is_error_amount}
+            ${ActualResult}=    Get Text    css:#alertAmount
         END
     END
 
     Write Excel Cell    ${i}    8    ${ActualResult}
-
 
 Verify
     [Arguments]    ${i}    

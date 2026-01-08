@@ -13,9 +13,9 @@ ${MouseOver}    //a[contains(text(),'รายรับรายจ่ายข�
 ${clickLink}    //a[contains(text(), 'บันทึกรายรับ')]
 ${locProductName}    //select[@id="product_name"]
 ${locAmount}    //input[@id="amount"]
+${locAlertProduct}      css:#alertProduct_name
 
-
-${locAssetPrice}    //input[@id="asset_price"]
+# ${locAssetPrice}    //input[@id="asset_price"]
 ${locSum}    //input[@id='sum']
 
 ${butSubmit}    //input[@class="btn btn-success"]
