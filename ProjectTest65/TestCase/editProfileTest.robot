@@ -19,7 +19,8 @@ Test Edit Profile
             Input Form Fullname and Phone    ${i}
             Button Save Edit Profile
             Handle Alert And Validate    ${i}
-            Browser Close  
+             
         END
     END
+    Browser Close 
     Save And Close Excel

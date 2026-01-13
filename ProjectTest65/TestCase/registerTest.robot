@@ -19,7 +19,8 @@ Test Register
             Input Form     ${i}
             Button Click
             Handle Alert And Validate    ${i}
-            Browser Close  
+            
         END
     END
+    Browser Close  
     Save And Close Excel
