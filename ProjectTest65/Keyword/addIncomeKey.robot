@@ -39,7 +39,7 @@ Click Income Link
     Click Element    ${clickLink}
     
     
-Select Ordet name
+Select Order Name
     [Arguments]    ${i}
         ${ProductName}    Read Excel Cell    ${i}    5
         ${ProductName}    Evaluate    str("${ProductName}").strip()
@@ -71,23 +71,23 @@ Input Amount
 
 #     RETURN    ${ActualResult1}
 
-Button Click
+Button Click Add
     ${submit_button}    Get WebElement    //div[@class="list"]
     Scroll Element Into View    ${submit_button}
     Sleep    2s
     Click Element    //input[@id='add']
 
 
-Handle Alert And Validate
-    [Arguments]    ${i}
-    ${Expec}    Read Excel Cell    ${i}    7
-    ${ActualResult1}    Run Keyword And Return Status
-    ...    Wait Until Element Is Visible    //input[@id='sum']    timeout=5s
+# Handle Alert And Validate
+#     [Arguments]    ${i}
+#     ${Expec}    Read Excel Cell    ${i}    7
+#     ${ActualResult1}    Run Keyword And Return Status
+#     ...    Wait Until Element Is Visible    //input[@id='sum']    timeout=5s
     
-    IF    ${ActualResult1}
-        ${ActualResult1}    Get Value    //input[@id='sum']
-        Write Excel Cell    ${i}    8    ${ActualResult1}
-    END
+#     IF    ${ActualResult1}
+#         ${ActualResult1}    Get Value    //input[@id='sum']
+#         Write Excel Cell    ${i}    8    ${ActualResult1}
+#     END
 
 # แก้ไขตรง Write Excel Cell มันเขียนทับ Error Msg
 Error Msg
@@ -126,36 +126,77 @@ Error Msg
 
 
 
-Get Actual Result
-    [Arguments]    ${i}
+# Get Actual Result
+#     [Arguments]    ${i}
 
-    ${ActualResult}=    Set Variable    ${EMPTY}
+#     ${ActualResult}=    Set Variable    ${EMPTY}
 
-    # กรณี Success (มี sum)
-    ${is_success}=    Run Keyword And Return Status
-    ...    Wait Until Element Is Visible    //input[@id='sum']    3s
+#     # กรณี Success (มี sum)
+#     ${is_success}=    Run Keyword And Return Status
+#     ...    Wait Until Element Is Visible    //input[@id='sum']    3s
 
-    IF    ${is_success}
-        ${ActualResult}=    Get Value    //input[@id='sum']
-    ELSE
-        # ตรวจ error สินค้า
-        ${is_error_product}=    Run Keyword And Return Status
-        ...    Page Should Contain Element    css:#alertProduct_name
+#     IF    ${is_success}
+#         ${ActualResult}=    Get Value    //input[@id='sum']
+#     ELSE
+#         # ตรวจ error สินค้า
+#         ${is_error_product}=    Run Keyword And Return Status
+#         ...    Page Should Contain Element    css:#alertProduct_name
 
-        # ตรวจ error จำนวน
-        ${is_error_amount}=    Run Keyword And Return Status
-        ...    Page Should Contain Element    css:#alertAmount
+#         # ตรวจ error จำนวน
+#         ${is_error_amount}=    Run Keyword And Return Status
+#         ...    Page Should Contain Element    css:#alertAmount
 
-        IF    ${is_error_product} and ${is_error_amount}
-            ${ActualResult}=    Set Variable    กรุณาเลือกสินค้า, กรุณากรอกจำนวน
-        ELSE IF    ${is_error_product}
-            ${ActualResult}=    Get Text    css:#alertProduct_name
-        ELSE IF    ${is_error_amount}
-            ${ActualResult}=    Get Text    css:#alertAmount
-        END
-    END
+#         IF    ${is_error_product} and ${is_error_amount}
+#             ${ActualResult}=    Set Variable    กรุณาเลือกสินค้า, กรุณากรอกจำนวน
+#         ELSE IF    ${is_error_product}
+#             ${ActualResult}=    Get Text    css:#alertProduct_name
+#         ELSE IF    ${is_error_amount}
+#             ${ActualResult}=    Get Text    css:#alertAmount
+#         END
+#     END
 
-    Write Excel Cell    ${i}    8    ${ActualResult}
+#     Write Excel Cell    ${i}    8    ${ActualResult}
+
+
+# Handle Alert And Validate
+    # [Arguments]    ${i}
+
+    # ${ExpectedResult}=    Read Excel Cell    ${i}    7
+    # ${ActualResult}=      Set Variable    ${EMPTY}
+
+    # # เช็คว่ามีช่อง sum หรือไม่
+    # ${hasSum}=    Run Keyword And Return Status
+    # ...    Wait Until Element Is Visible    //input[@id='sum']    5s
+
+    # IF    ${hasSum}
+    #     ${sumValue}=    Get Value    //input[@id='sum']
+
+    #     # ถ้า sum = 0 ให้ไปเอา error message
+    #     IF    '${sumValue}' == '0'
+    #         ${hasError}=    Run Keyword And Return Status
+    #         ...    Wait Until Element Is Visible    //label[@id='alertProduct_name']    5s
+
+    #         IF    ${hasError}
+    #             ${ActualResult}=    Get Value    //label[@id='alertProduct_name']
+    #         END
+    #     ELSE
+    #         ${ActualResult}=    Set Variable    ${sumValue}
+    #     END
+    # ELSE
+    #     # กรณีไม่มี sum เลย ให้เช็ค error
+    #     ${hasError}=    Run Keyword And Return Status
+    #     ...    Wait Until Element Is Visible    //label[@id='alertProduct_name']    5s
+
+    #     IF    ${hasError}
+    #         ${ActualResult}=    Get Value    //label[@id='alertProduct_name']
+    #     END
+    # END
+
+    # Write Excel Cell    ${i}    8    ${ActualResult}
+
+
+
+    
 
 Verify
     [Arguments]    ${i}    
@@ -169,6 +210,99 @@ Verify
         Write Excel Cell    ${i}    9    Fail
         Capture Page Screenshot    ProjectTest65/imgAddIncome/error_${i}.png
     END
+
+
+
+# Handle Alert And Validate    #เป็นการตรวจสอบerrorก หลังกด add เเล้ว
+#     [Arguments]    ${i}
+
+#     ${ExpectedResult}=    Read Excel Cell    ${i}    7
+#     ${ActualResult}=      Set Variable    ${EMPTY}
+
+#     # ตรวจสอบว่ามีช่อง sum หรือไม่
+#     ${hasSum}=    Run Keyword And Return Status
+#     ...    Wait Until Element Is Visible    //input[@id='sum']    timeout=5s
+
+#     IF    ${hasSum}
+#         ${sumValue}=    Get Value    //input[@id='sum']
+
+#         IF    '${sumValue}' == '0'
+#             # ตรวจสอบ error message
+#             ${hasErrorProduct}=    Run Keyword And Return Status
+#             ...    Page Should Contain Element    //label[@id='alertProduct_name']
+
+#             IF    ${hasErrorProduct}
+#                 ${ActualResult}=    Get Text    //label[@id='alertProduct_name']
+#             ELSE
+#                 ${ActualResult}=    Get Text    //label[@id='alertAmount']
+#             END
+#         ELSE
+#             ${ActualResult}=    Set Variable    ${sumValue}
+#         END
+
+#         Write Excel Cell    ${i}    8    ${ActualResult}
+#     END
+
+#     # อ่านค่าที่เขียนลง Excel แล้วมาเทียบ
+#     ${ActualResult}=      Read Excel Cell    ${i}    8
+
+#     IF    '${ActualResult}' == '${ExpectedResult}'
+#         Write Excel Cell    ${i}    9    Pass
+#     ELSE
+#         Write Excel Cell    ${i}    9    Fail
+#         Capture Page Screenshot    ProjectTest65/imgAddIncome/error_${i}.png
+#     END
+
+Handle Alert And Validate
+    [Arguments]    ${i}
+
+    ${ExpectedResult}=    Read Excel Cell    ${i}    7
+    ${ActualResult}=      Set Variable    ${EMPTY}
+
+    # เช็คว่ามีช่อง sum
+    ${hasSum}=    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible    //input[@id='sum']    5s
+
+    IF    ${hasSum}
+        ${sumValue}=    Get Value    //input[@id='sum']
+
+        IF    '${sumValue}' == '0'
+            # === ต้องกด Add ก่อน ===
+            ${submit_button}=    Get WebElement    //div[@class="list"]
+            Scroll Element Into View    ${submit_button}
+            Sleep    2s
+            Click Element    //input[@id='add']
+
+            # รอให้ error แสดง
+            ${hasErrorProduct}=    Run Keyword And Return Status
+            ...    Wait Until Element Is Visible    //label[@id='alertProduct_name']    2s
+
+            IF    ${hasErrorProduct}
+                ${ActualResult}=    Get Text    //label[@id='alertProduct_name']
+            ELSE
+                ${ActualResult}=    Get Text    //label[@id='alertAmount']
+            END
+        ELSE
+            ${ActualResult}=    Set Variable    ${sumValue}
+        END
+
+        Write Excel Cell    ${i}    8    ${ActualResult}
+    END
+
+    # อ่านค่าจาก Excel มาเทียบ
+    ${ActualResult}=    Read Excel Cell    ${i}    8
+
+    IF    '${ActualResult}' == '${ExpectedResult}'
+        Write Excel Cell    ${i}    9    Pass
+    ELSE
+        Write Excel Cell    ${i}    9    Fail
+        Capture Page Screenshot    ProjectTest65/imgAddIncome/error_${i}.png
+    END
+
+
+
+
+
 
 
 Browser Close
