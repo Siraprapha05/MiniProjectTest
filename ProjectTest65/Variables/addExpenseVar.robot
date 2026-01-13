@@ -12,6 +12,12 @@ ${locbtnLogin}    //input[@type="submit"]
 ${MouseOver}    //a[contains(text(),'รายรับรายจ่ายของโครงการ')]
 ${clickLink}    //a[contains(text(),'บันทึกรายจ่าย')]
 
-${locDeviceName}    //select[@id='equipment_name']
+${locDeviceName}    css:#equipment_name
 ${locAssetPrice}    //input[@id='asset_price']
 ${locAmount}    //input[@id='amount']
+
+${alertProduct_name}    //label[@id='alertProduct_name']
+${alertAssetPrice}    //label[@id='alertPrice']
+${alertAmount}    //label[@id='alertAmount']
+
+${submit_button}    //input[@id='add']

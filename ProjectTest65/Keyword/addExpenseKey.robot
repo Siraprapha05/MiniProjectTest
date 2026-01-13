@@ -35,7 +35,7 @@ Button Click Login
 
 Click Income Link
     Mouse Over    ${MouseOver}    
-    Wait Until Element Is Visible    ${clickLink}    5s
+    Wait Until Element Is Visible    ${clickLink}    10s
     Click Element    ${clickLink}
 
 Select Order Name
@@ -69,14 +69,47 @@ Input Amount
 
 Handle Alert And Validate
     [Arguments]    ${i}    
-
     ${ExpectedResult}=    Read Excel Cell    ${i}    8
+    
+
+    ${hasSum}   Run Keyword And Return Status    
+    ...    Wait Until Element Is Visible    //input[@id='sum']    3s
+    
+    IF    ${hasSum}
+        ${sumValue}=    Get Value    //input[@id='sum']
+        ${submit_button}=    Get WebElement    //div[@class="list"]
+            Scroll Element Into View    ${submit_button}
+            Sleep    2s
+            Click Element    //input[@id='add']
+            
+            ${hasErrorProduct}    Run Keyword And Return Status    
+            ...    Wait Until Element Is Visible    ${alertProduct_name}   3s
+
+            ${hasErrorPrice}    Run Keyword And Return Status    
+            ...    Wait Until Element Is Visible    ${alertAssetPrice}   3s        
+
+            ${hasErrorAmount}    Run Keyword And Return Status
+            ...    Wait Until Element Is Visible    ${alertAmount}   3s
+
+            IF    ${hasErrorProduct}
+                ${ActualResult}=    Get Text    ${alertProduct_name}
+            ELSE IF    ${hasErrorPrice}
+                ${ActualResult}=    Get Text    ${alertAssetPrice}
+            ELSE IF    ${hasErrorAmount}
+                ${ActualResult}=    Get Text    ${alertAmount}
+            ELSE
+            ${ActualResult}=    Set Variable    ${sumValue}
+        END      
+        Write Excel Cell    ${i}    9    ${ActualResult}  
+    END
+
     ${ActualResult}=    Read Excel Cell    ${i}    9
+
     IF    '${ExpectedResult}' == '${ActualResult}'
         Write Excel Cell    ${i}    10    Pass
     ELSE
         Write Excel Cell    ${i}    10    Fail
-        Capture Page Screenshot    ProjectTest65\imgAddExpense\error_${i}.png
+        Capture Page Screenshot    ProjectTest65/imgAddExpense/error_${i}.png
     END
 
 
