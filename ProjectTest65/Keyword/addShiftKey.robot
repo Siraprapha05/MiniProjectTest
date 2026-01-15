@@ -301,57 +301,107 @@ Get Visible Alert
 
 
 
+# Handle Alert And Validate
+#     [Arguments]    ${i}
+
+#     ${ExpectedResult}=    Read Excel Cell    ${i}    9
+#     ${ActualResult}=      Set Variable    ${EMPTY}
+
+#     ${status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    leave    5s
+#     Run Keyword If    '${status}'=='PASS'    Write Excel Cell    ${i}    10    ${alert_text}
+
+#         ${is500}=    Run Keyword And Return Status
+#         ...    Page Should Contain    HTTP Status 500
+
+#         IF    ${is500}
+#             ${ActualResult}=    Set Variable    HTTP Status 500 – Internal Server Error
+#         ELSE
+
+#             ${start}=    Read Excel Cell    ${i}    6
+#             ${end}=    Read Excel Cell    ${i}    7
+#             ${hasalertRole}    ${alertR}=    Run Keyword And Ignore Error    Get Text    ${alertRole}  
+#             Run Keyword If    '${hasalertRole}'!='Pass'     Write Excel Cell    ${i}    10    ${alertR}
+
+#             ${hasalertText}    ${alertT}=    Run Keyword And Ignore Error    Get Text    ${alertText} 
+#             Run Keyword If    '${hasalertText}'!='Pass'     Write Excel Cell    ${i}    10    ${alertT}
+               
+#             IF    '${start}' == '' or '${start}' == 'None' or '${end}' == '' or '${end}' == 'None'
+#                 ${ActualResult}=    Set Variable    Please fill out this field.
+#                 # Write Excel Cell    ${i}    10    ${ActualResult}
+#             END
+
+#             # IF    ${hasalertRole}
+#             #     ${ActualResult}=    Get Text    ${alertR}
+#             # ELSE IF    ${hasalertText}
+#             #     ${ActualResult}=    Get Text    ${alertT}
+#             # ELSE
+#             #     ${ActualResult}=    Set Variable    ${EMPTY}
+#             # END
+
+#             Write Excel Cell     ${i}    10    ${ActualResult}
+#         END
+
+
+
+
+
+#     IF    ${ExpectedResult} == ${ActualResult} or ${ExpectedResult} == ${alert_text}
+#         Write Excel Cell    ${i}    11    Pass
+#     ELSE
+#         Write Excel Cell    ${i}    11    Fail
+#         Capture Page Screenshot    ProjectTest65/imgAddShift/error_${i}.png
+#     END
+
+
 Handle Alert And Validate
     [Arguments]    ${i}
 
     ${ExpectedResult}=    Read Excel Cell    ${i}    9
     ${ActualResult}=      Set Variable    ${EMPTY}
 
-    ${status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    leave    5s
+    ${status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    leave    
     Run Keyword If    '${status}'=='PASS'    Write Excel Cell    ${i}    10    ${alert_text}
 
-        ${is500}=    Run Keyword And Return Status
-        ...    Page Should Contain    HTTP Status 500
+        ${is500}=    Run Keyword And Return Status    Page Should Contain    HTTP Status 500
 
         IF    ${is500}
-            ${ActualResult}    Set Variable    HTTP Status 500 – Internal Server Error
+            ${ActualResult}=    Set Variable    HTTP Status 500 – Internal Server Error
+            Write Excel Cell     ${i}    10    ${ActualResult}
         ELSE
 
-            ${start}    Read Excel Cell    ${i}    6
-            ${end}    Read Excel Cell    ${i}    7
-
-            ${hasalertRole}    ${alertR}    Run Keyword And Ignore Error
-            ...    Wait Until Element Is Visible    ${alertRole}    5s
+            ${start}=    Read Excel Cell    ${i}    6
+            ${end}=    Read Excel Cell    ${i}    7
             
-            ${hasalertText}    ${alertT}    Run Keyword And Ignore Error
-            ...    Wait Until Element Is Visible    ${alertText}    5s
-               
+            ${hasalertRole}=    Run Keyword And Return Status
+            ...    Wait Until Element Is Visible    //label[@id="alertTask_name"]    2s
+            
+            ${hasalertText}=    Run Keyword And Return Status
+            ...    Wait Until Element Is Visible    //p[text()=' เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง !!!']    2s
+
             IF    '${start}' == '' or '${start}' == 'None' or '${end}' == '' or '${end}' == 'None'
                 ${ActualResult}=    Set Variable    Please fill out this field.
-                # Write Excel Cell    ${i}    10    ${ActualResult}
-            END
-
-            IF    ${hasalertRole}
-                ${ActualResult}=    Get Text    ${alertR}
+                Write Excel Cell    ${i}    10    ${ActualResult}
+            ELSE IF    ${hasalertRole}
+                ${ActualResult}=    Get Text    //label[@id="alertTask_name"] 
+                Write Excel Cell     ${i}    10    ${ActualResult}
             ELSE IF    ${hasalertText}
-                ${ActualResult}=    Get Text    ${alertT}
+                ${ActualResult}=    Get Text    //p[text()=' เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง !!!']
+                Write Excel Cell     ${i}    10    ${ActualResult}
             ELSE
-                ${ActualResult}=    Set Variable    ${EMPTY}
+                ${ActualResult}=    Set Variable    ${EMPTY} 
             END
-
-            Write Excel Cell     ${i}    10    ${ActualResult}
         END
-
-
-
-
-
     IF    '${ExpectedResult}' == '${ActualResult}' or '${ExpectedResult}' == '${alert_text}'
         Write Excel Cell    ${i}    11    Pass
     ELSE
         Write Excel Cell    ${i}    11    Fail
         Capture Page Screenshot    ProjectTest65/imgAddShift/error_${i}.png
     END
+
+
+
+
+
 
 Browser Close
     Sleep    1s

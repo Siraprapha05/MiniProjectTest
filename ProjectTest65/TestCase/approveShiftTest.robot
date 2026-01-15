@@ -16,9 +16,9 @@ Test Add Shift
             Click Link Add Shift
 
             # Handle Alert And Validate    ${i}
-            
+            Browser Close  
        END
     END
-    Browser Close  
+    
     Save And Close Excel
     

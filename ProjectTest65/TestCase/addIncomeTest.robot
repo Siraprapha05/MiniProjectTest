@@ -19,8 +19,8 @@ Test Add Income
             Input Amount    ${i}  
 
             Handle Alert And Validate    ${i}
-
+            Browser Close 
        END
     END
-    Browser Close 
+    
     Save And Close Excel 
