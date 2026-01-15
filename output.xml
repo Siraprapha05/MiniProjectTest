@@ -1,575 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2026-01-13T19:04:33.916089" rpa="false" schemaversion="5">
-<suite id="s1" name="addExpenseTest" source="d:\workspace\MiniProjectTest\ProjectTest65\TestCase\addExpenseTest.robot">
-<test id="s1-t1" name="Test Add Expense" line="8">
-<kw name="Launch Excel" owner="addExpenseKey">
-<kw name="Open Excel Document" owner="ExcelLibrary">
-<arg>${DataTable}</arg>
-<arg>${sheet}</arg>
-<doc>Opens xlsx document file.</doc>
-<status status="PASS" start="2026-01-13T19:04:35.238394" elapsed="0.016493"/>
-</kw>
-<status status="PASS" start="2026-01-13T19:04:35.236837" elapsed="0.018453"/>
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2026-01-15T14:04:06.668048" rpa="false" schemaversion="5">
+<suite id="s1" name="addShiftTest" source="d:\workspace\MiniProjectTest\ProjectTest65\TestCase\addShiftTest.robot">
+<test id="s1-t1" name="Test Add Shift" line="8">
+<kw name="Launch Excel">
+<msg time="2026-01-15T14:04:15.912205" level="FAIL">No keyword with name 'Launch Excel' found.</msg>
+<status status="FAIL" start="2026-01-15T14:04:15.894433" elapsed="75.365340">No keyword with name 'Launch Excel' found.</status>
 </kw>
 <for flavor="IN RANGE">
 <iter>
 <kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2026-01-13T19:04:35.257425" level="INFO">${status} = N</msg>
 <var>${status}</var>
 <arg>${i}</arg>
 <arg>1</arg>
 <doc>Returns content of a cell.</doc>
-<status status="PASS" start="2026-01-13T19:04:35.256976" elapsed="0.005292"/>
+<status status="NOT RUN" start="2026-01-15T14:05:31.273199" elapsed="0.001706"/>
 </kw>
 <if>
 <branch type="IF" condition="'${status}' == 'Y'">
-<kw name="Launch Browser and Navigate to Url" owner="addExpenseKey">
-<status status="NOT RUN" start="2026-01-13T19:04:35.263363" elapsed="0.000190"/>
+<kw name="Launch Browser and Navigate to Url">
+<status status="NOT RUN" start="2026-01-15T14:05:31.281779" elapsed="0.001705"/>
 </kw>
-<kw name="Login Input" owner="addExpenseKey">
+<kw name="Login Input">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2026-01-13T19:04:35.264255" elapsed="0.000321"/>
+<status status="NOT RUN" start="2026-01-15T14:05:31.287084" elapsed="0.001130"/>
 </kw>
-<kw name="Button Click Login" owner="addExpenseKey">
-<status status="NOT RUN" start="2026-01-13T19:04:35.264994" elapsed="0.000168"/>
+<kw name="Button Click Login">
+<status status="NOT RUN" start="2026-01-15T14:05:31.289666" elapsed="0.001085"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:35.265453" elapsed="0.000185"/>
+<kw name="Click Link Add Shift">
+<status status="NOT RUN" start="2026-01-15T14:05:31.292206" elapsed="0.000923"/>
 </kw>
-<kw name="Click Income Link" owner="addExpenseKey">
-<status status="NOT RUN" start="2026-01-13T19:04:35.265996" elapsed="0.000144"/>
-</kw>
-<kw name="Select Order Name" owner="addExpenseKey">
+<kw name="Input Work Date">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2026-01-13T19:04:35.266457" elapsed="0.000229"/>
+<status status="NOT RUN" start="2026-01-15T14:05:31.298230" elapsed="0.007108"/>
 </kw>
-<kw name="Input Price" owner="addExpenseKey">
+<kw name="Input Start Time">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2026-01-13T19:04:35.267156" elapsed="0.000187"/>
+<status status="NOT RUN" start="2026-01-15T14:05:31.307498" elapsed="0.002040"/>
 </kw>
-<kw name="Input Amount" owner="addExpenseKey">
+<kw name="Input End Time">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2026-01-13T19:04:35.267755" elapsed="0.000221"/>
+<status status="NOT RUN" start="2026-01-15T14:05:31.318030" elapsed="0.002007"/>
 </kw>
-<kw name="Handle Alert And Validate" owner="addExpenseKey">
+<kw name="Input Role">
 <arg>${i}</arg>
-<status status="NOT RUN" start="2026-01-13T19:04:35.269186" elapsed="0.000318"/>
+<status status="NOT RUN" start="2026-01-15T14:05:31.323750" elapsed="0.002255"/>
 </kw>
-<status status="NOT RUN" start="2026-01-13T19:04:35.262708" elapsed="0.007527"/>
+<kw name="Button Click">
+<status status="NOT RUN" start="2026-01-15T14:05:31.329562" elapsed="0.001515"/>
+</kw>
+<kw name="Handle Alert And Validate">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2026-01-15T14:05:31.332993" elapsed="0.001668"/>
+</kw>
+<status status="NOT RUN" start="2026-01-15T14:05:31.278082" elapsed="0.058384"/>
 </branch>
-<status status="PASS" start="2026-01-13T19:04:35.262640" elapsed="0.007847"/>
+<status status="NOT RUN" start="2026-01-15T14:05:31.277508" elapsed="0.060352"/>
 </if>
-<var name="${i}">2</var>
-<status status="PASS" start="2026-01-13T19:04:35.256627" elapsed="0.013923"/>
-</iter>
-<iter>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2026-01-13T19:04:35.271673" level="INFO">${status} = Y</msg>
-<var>${status}</var>
-<arg>${i}</arg>
-<arg>1</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2026-01-13T19:04:35.271240" elapsed="0.000650"/>
-</kw>
-<if>
-<branch type="IF" condition="'${status}' == 'Y'">
-<kw name="Launch Browser and Navigate to Url" owner="addExpenseKey">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:35.273874" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080/vegetable/goLogin'.</msg>
-<arg>${url}</arg>
-<arg>${browser}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-01-13T19:04:35.273325" elapsed="2.285648"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-01-13T19:04:37.559811" elapsed="1.535207"/>
-</kw>
-<status status="PASS" start="2026-01-13T19:04:35.272708" elapsed="3.822841"/>
-</kw>
-<kw name="Login Input" owner="addExpenseKey">
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2026-01-13T19:04:39.098164" level="INFO">${email} = mju6204106317@mju.ac.th</msg>
-<var>${email}</var>
-<arg>${i}</arg>
-<arg>3</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2026-01-13T19:04:39.097351" elapsed="0.001325"/>
-</kw>
-<if>
-<branch type="IF" condition="'${email}' == '${NONE}'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${email}</var>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:39.100309" elapsed="0.000353"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:39.099355" elapsed="0.001645"/>
-</branch>
-<status status="PASS" start="2026-01-13T19:04:39.099281" elapsed="0.002036"/>
-</if>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${locemail}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-01-13T19:04:39.101753" elapsed="0.353841"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:39.456326" level="INFO">Typing text 'mju6204106317@mju.ac.th' into text field '//input[@id="email"]'.</msg>
-<arg>${locemail}</arg>
-<arg>${email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:39.455924" elapsed="0.183436"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2026-01-13T19:04:39.640574" level="INFO">${password} = 111111</msg>
-<var>${password}</var>
-<arg>${i}</arg>
-<arg>4</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2026-01-13T19:04:39.639869" elapsed="0.000961"/>
-</kw>
-<if>
-<branch type="IF" condition="'${password}' == '${NONE}'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${password}</var>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:39.641548" elapsed="0.000121"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:39.641097" elapsed="0.000716"/>
-</branch>
-<status status="PASS" start="2026-01-13T19:04:39.641061" elapsed="0.000874"/>
-</if>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${locPassword}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-01-13T19:04:39.642071" elapsed="0.319736"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:39.962731" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
-<msg time="2026-01-13T19:04:39.999825" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${locPassword}</arg>
-<arg>${password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:39.962224" elapsed="0.112489"/>
-</kw>
-<arg>${i}</arg>
-<status status="PASS" start="2026-01-13T19:04:39.096369" elapsed="0.978817"/>
-</kw>
-<kw name="Button Click Login" owner="addExpenseKey">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:40.078833" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
-<arg>${locbtnLogin}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:40.077493" elapsed="0.207667"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-13T19:04:41.287704" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-13T19:04:40.286203" elapsed="1.001870"/>
-</kw>
-<status status="PASS" start="2026-01-13T19:04:40.075722" elapsed="1.212563"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-13T19:04:42.289386" level="INFO">Slept 1 second.</msg>
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-13T19:04:41.288524" elapsed="1.001364"/>
-</kw>
-<kw name="Click Income Link" owner="addExpenseKey">
-<kw name="Mouse Over" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:42.291798" level="INFO">Simulating Mouse Over on element '//a[contains(text(),'รายรับรายจ่ายของโครงการ')]'.</msg>
-<arg>${MouseOver}</arg>
-<doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:42.291171" elapsed="0.303781"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${clickLink}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-13T19:04:42.595325" elapsed="0.035018"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:42.631382" level="INFO">Clicking element '//a[contains(text(),'บันทึกรายจ่าย')]'.</msg>
-<arg>${clickLink}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:42.630803" elapsed="0.824264"/>
-</kw>
-<status status="PASS" start="2026-01-13T19:04:42.290430" elapsed="1.166426"/>
-</kw>
-<kw name="Select Order Name" owner="addExpenseKey">
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2026-01-13T19:04:43.459541" level="INFO">${DeviceName} = เมล็ดผักชี</msg>
-<var>${DeviceName}</var>
-<arg>${i}</arg>
-<arg>5</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2026-01-13T19:04:43.458709" elapsed="0.001239"/>
-</kw>
-<kw name="Evaluate" owner="BuiltIn">
-<msg time="2026-01-13T19:04:43.462292" level="INFO">${DeviceName} = เมล็ดผักชี</msg>
-<var>${DeviceName}</var>
-<arg>str("${DeviceName}").strip()</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2026-01-13T19:04:43.461080" elapsed="0.001517"/>
-</kw>
-<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>ชื่ออุปกรณ์</arg>
-<doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2026-01-13T19:04:43.463049" elapsed="0.028276"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${locDeviceName}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-01-13T19:04:43.491712" elapsed="0.297505"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${locDeviceName}</arg>
-<arg>1s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-13T19:04:43.789550" elapsed="0.022568"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<kw name="Select From List By Label" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:43.813686" level="INFO">Selecting options from selection list 'css:#equipment_name' by label เมล็ดผักชี.</msg>
-<arg>${locDeviceName}</arg>
-<arg>${DeviceName}</arg>
-<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
-<status status="PASS" start="2026-01-13T19:04:43.813148" elapsed="0.242046"/>
-</kw>
-<arg>Select From List By Label</arg>
-<arg>${locDeviceName}</arg>
-<arg>${DeviceName}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="PASS" start="2026-01-13T19:04:43.812631" elapsed="0.242870"/>
-</kw>
-<arg>${i}</arg>
-<status status="PASS" start="2026-01-13T19:04:43.457613" elapsed="0.598098"/>
-</kw>
-<kw name="Input Price" owner="addExpenseKey">
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2026-01-13T19:04:44.057188" level="INFO">${Price} = 10</msg>
-<var>${Price}</var>
-<arg>${i}</arg>
-<arg>6</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.056710" elapsed="0.000695"/>
-</kw>
-<if>
-<branch type="IF" condition="'${Price}' == '${NONE}'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${Price}</var>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:44.058105" elapsed="0.000147"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:44.057641" elapsed="0.000774"/>
-</branch>
-<status status="PASS" start="2026-01-13T19:04:44.057605" elapsed="0.000971"/>
-</if>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${locAssetPrice}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.058743" elapsed="0.299570"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:44.359089" level="INFO">Typing text '10' into text field '//input[@id='asset_price']'.</msg>
-<arg>${locAssetPrice}</arg>
-<arg>${Price}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.358674" elapsed="0.119392"/>
-</kw>
-<arg>${i}</arg>
-<status status="PASS" start="2026-01-13T19:04:44.056106" elapsed="0.422649"/>
-</kw>
-<kw name="Input Amount" owner="addExpenseKey">
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2026-01-13T19:04:44.480928" level="INFO">${amount} = 1</msg>
-<var>${amount}</var>
-<arg>${i}</arg>
-<arg>7</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.480395" elapsed="0.000756"/>
-</kw>
-<if>
-<branch type="IF" condition="'${amount}' == '${NONE}'">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${amount}</var>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:44.481798" elapsed="0.000120"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:44.481384" elapsed="0.000672"/>
-</branch>
-<status status="PASS" start="2026-01-13T19:04:44.481349" elapsed="0.000835"/>
-</if>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${locAmount}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.482325" elapsed="0.304046"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:44.787314" level="INFO">Typing text '1' into text field '//input[@id='amount']'.</msg>
-<arg>${locAmount}</arg>
-<arg>${amount}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.786819" elapsed="0.093869"/>
-</kw>
-<arg>${i}</arg>
-<status status="PASS" start="2026-01-13T19:04:44.479481" elapsed="0.401767"/>
-</kw>
-<kw name="Handle Alert And Validate" owner="addExpenseKey">
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2026-01-13T19:04:44.883492" level="INFO">${ExpectedResult} = 10</msg>
-<var>${ExpectedResult}</var>
-<arg>${i}</arg>
-<arg>8</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.883031" elapsed="0.000659"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>//input[@id='sum']</arg>
-<arg>3s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.884587" elapsed="0.030930"/>
-</kw>
-<msg time="2026-01-13T19:04:44.915819" level="INFO">${hasSum} = True</msg>
-<var>${hasSum}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//input[@id='sum']</arg>
-<arg>3s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.884012" elapsed="0.031948"/>
-</kw>
-<if>
-<branch type="IF" condition="${hasSum}">
-<kw name="Get Value" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:44.940866" level="INFO">${sumValue} = 10</msg>
-<var>${sumValue}</var>
-<arg>//input[@id='sum']</arg>
-<doc>Returns the value attribute of the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.916642" elapsed="0.024514"/>
-</kw>
-<kw name="Get WebElement" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:44.963155" level="INFO">${submit_button} = &lt;selenium.webdriver.remote.webelement.WebElement (session="6d6a110b32c5923b3a3313f1fb154a8d", element="f.9451C319433C5A513BDD52F218060907.d.F74D3413E61B4F5894641592BC3705A1.e.63")&gt;</msg>
-<var>${submit_button}</var>
-<arg>//div[@class="list"]</arg>
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.941512" elapsed="0.021922"/>
-</kw>
-<kw name="Scroll Element Into View" owner="SeleniumLibrary">
-<arg>${submit_button}</arg>
-<doc>Scrolls the element identified by ``locator`` into view.</doc>
-<status status="PASS" start="2026-01-13T19:04:44.963956" elapsed="0.286254"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<msg time="2026-01-13T19:04:47.251327" level="INFO">Slept 2 seconds.</msg>
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="PASS" start="2026-01-13T19:04:45.250552" elapsed="2.001790"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:47.253422" level="INFO">Clicking element '//input[@id='add']'.</msg>
-<arg>//input[@id='add']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2026-01-13T19:04:47.252756" elapsed="0.554644"/>
-</kw>
-<kw name="Set Variable" owner="BuiltIn">
-<msg time="2026-01-13T19:04:47.808239" level="INFO">${message} = not message</msg>
-<var>${message}</var>
-<arg>not message</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2026-01-13T19:04:47.807821" elapsed="0.000747"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:51.079540" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-57.png"&gt;&lt;img src="selenium-screenshot-57.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-13T19:04:51.080151" level="FAIL">Element '//label[@id='alertProduct_name']' not visible after 3 seconds.</msg>
-<arg>${alertProduct_name}</arg>
-<arg>3s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-01-13T19:04:47.809892" elapsed="3.278587">Element '//label[@id='alertProduct_name']' not visible after 3 seconds.</status>
-</kw>
-<msg time="2026-01-13T19:04:51.088971" level="INFO">${hasErrorProduct} = False</msg>
-<var>${hasErrorProduct}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${alertProduct_name}</arg>
-<arg>3s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-13T19:04:47.809001" elapsed="3.280220"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:54.336247" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-58.png"&gt;&lt;img src="selenium-screenshot-58.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-13T19:04:54.336713" level="FAIL">Element '//label[@id='alertPrice']' not visible after 3 seconds.</msg>
-<arg>${alertAssetPrice}</arg>
-<arg>3s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-01-13T19:04:51.090602" elapsed="3.248485">Element '//label[@id='alertPrice']' not visible after 3 seconds.</status>
-</kw>
-<msg time="2026-01-13T19:04:54.339686" level="INFO">${hasErrorPrice} = False</msg>
-<var>${hasErrorPrice}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${alertAssetPrice}</arg>
-<arg>3s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-13T19:04:51.089745" elapsed="3.250263"/>
-</kw>
-<kw name="Run Keyword And Return Status" owner="BuiltIn">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2026-01-13T19:04:57.576733" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-59.png"&gt;&lt;img src="selenium-screenshot-59.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2026-01-13T19:04:57.577212" level="FAIL">Element '//label[@id='alertAmount']' not visible after 3 seconds.</msg>
-<arg>${alertAmount}</arg>
-<arg>3s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2026-01-13T19:04:54.340976" elapsed="3.238490">Element '//label[@id='alertAmount']' not visible after 3 seconds.</status>
-</kw>
-<msg time="2026-01-13T19:04:57.579898" level="INFO">${hasErrorAmount} = False</msg>
-<var>${hasErrorAmount}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>${alertAmount}</arg>
-<arg>3s</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<status status="PASS" start="2026-01-13T19:04:54.340483" elapsed="3.239656"/>
-</kw>
-<if>
-<branch type="IF" condition="${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}">
-<if>
-<branch type="IF" condition="${hasErrorProduct}">
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${ActualResult}</var>
-<arg>${alertProduct_name}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:57.586607" elapsed="0.000198"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:57.586289" elapsed="0.000731"/>
-</branch>
-<branch type="ELSE IF" condition="${hasErrorPrice}">
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${ActualResult}</var>
-<arg>${alertAssetPrice}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:57.587432" elapsed="0.000174"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:57.587179" elapsed="0.000633"/>
-</branch>
-<branch type="ELSE IF" condition="${hasErrorAmount}">
-<kw name="Get Text" owner="SeleniumLibrary">
-<var>${ActualResult}</var>
-<arg>${alertAmount}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:57.588240" elapsed="0.000153"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:57.587965" elapsed="0.000599"/>
-</branch>
-<branch type="ELSE">
-<kw name="Set Variable" owner="BuiltIn">
-<var>${ActualResult}</var>
-<arg>not message</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:57.588945" elapsed="0.000152"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:57.588704" elapsed="0.000554"/>
-</branch>
-<status status="NOT RUN" start="2026-01-13T19:04:57.586250" elapsed="0.003146"/>
-</if>
-<msg time="2026-01-13T19:04:57.589482" level="FAIL">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</msg>
-<status status="FAIL" start="2026-01-13T19:04:57.580588" elapsed="0.013323">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
-</branch>
-<status status="FAIL" start="2026-01-13T19:04:57.580526" elapsed="0.013747">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
-</if>
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${i}</arg>
-<arg>9</arg>
-<arg>${ActualResult}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:57.594831" elapsed="0.000420"/>
-</kw>
-<status status="FAIL" start="2026-01-13T19:04:44.916175" elapsed="12.679503">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
-</branch>
-<status status="FAIL" start="2026-01-13T19:04:44.916141" elapsed="12.679885">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
-</if>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<var>${ActualResult}</var>
-<arg>${i}</arg>
-<arg>9</arg>
-<doc>Returns content of a cell.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:57.596410" elapsed="0.000341"/>
-</kw>
-<if>
-<branch type="IF" condition="'${ExpectedResult}' == '${ActualResult}'">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${i}</arg>
-<arg>10</arg>
-<arg>Pass</arg>
-<doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:57.597653" elapsed="0.000319"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:57.597182" elapsed="0.001105"/>
-</branch>
-<branch type="ELSE">
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${i}</arg>
-<arg>10</arg>
-<arg>Fail</arg>
-<doc>Writes value to the cell.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:57.599051" elapsed="0.000337"/>
-</kw>
-<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
-<arg>ProjectTest65\imgAddExpense\error_${i}.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="NOT RUN" start="2026-01-13T19:04:57.599934" elapsed="0.000333"/>
-</kw>
-<status status="NOT RUN" start="2026-01-13T19:04:57.598576" elapsed="0.002039"/>
-</branch>
-<status status="NOT RUN" start="2026-01-13T19:04:57.597117" elapsed="0.003849"/>
-</if>
-<arg>${i}</arg>
-<status status="FAIL" start="2026-01-13T19:04:44.882331" elapsed="12.718929">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
-</kw>
-<status status="FAIL" start="2026-01-13T19:04:35.272166" elapsed="22.329935">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
-</branch>
-<status status="FAIL" start="2026-01-13T19:04:35.272124" elapsed="22.330546">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
-</if>
-<var name="${i}">3</var>
-<status status="FAIL" start="2026-01-13T19:04:35.270969" elapsed="22.331891">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+<var name="${i}"/>
+<status status="NOT RUN" start="2026-01-15T14:05:31.269258" elapsed="0.070584"/>
 </iter>
 <var>${i}</var>
 <value>2</value>
 <value>${row}+1</value>
-<status status="FAIL" start="2026-01-13T19:04:35.255826" elapsed="22.347508">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+<status status="NOT RUN" start="2026-01-15T14:05:31.264695" elapsed="0.077574"/>
 </for>
-<kw name="Browser Close" owner="addExpenseKey">
-<status status="NOT RUN" start="2026-01-13T19:04:57.604669" elapsed="0.000340"/>
+<kw name="Browser Close">
+<status status="NOT RUN" start="2026-01-15T14:05:31.350816" elapsed="0.003539"/>
 </kw>
-<kw name="Save And Close Excel" owner="addExpenseKey">
-<status status="NOT RUN" start="2026-01-13T19:04:57.606022" elapsed="0.000318"/>
+<kw name="Save And Close Excel">
+<status status="NOT RUN" start="2026-01-15T14:05:31.369151" elapsed="0.003976"/>
 </kw>
-<status status="FAIL" start="2026-01-13T19:04:35.234672" elapsed="22.372569">Invalid IF condition: Evaluating expression 'not message or False or False or False' failed: NameError: name 'message' is not defined nor importable as module
-
-Variables in the original expression '${message} or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount}' were resolved before the expression was evaluated. Try using '$message or ${hasErrorProduct} or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorProduct or ${hasErrorPrice} or ${hasErrorAmount} or $hasErrorPrice or ${hasErrorAmount} or $hasErrorAmount' syntax to avoid that. See Evaluating Expressions appendix in Robot Framework User Guide for more details.</status>
+<status status="FAIL" start="2026-01-15T14:04:15.837064" elapsed="75.558863">No keyword with name 'Launch Excel' found.</status>
 </test>
-<status status="FAIL" start="2026-01-13T19:04:33.927535" elapsed="23.684378"/>
+<status status="FAIL" start="2026-01-15T14:04:06.702806" elapsed="84.707528"/>
 </suite>
 <statistics>
 <total>
@@ -578,9 +82,11 @@ Variables in the original expression '${message} or ${hasErrorProduct} or ${hasE
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="addExpenseTest">addExpenseTest</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="addShiftTest">addShiftTest</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2026-01-15T14:04:10.482254" level="ERROR">Error in file 'd:\workspace\MiniProjectTest\ProjectTest65\TestCase\addShiftTest.robot' on line 4: Resource file 'D:workspaceMiniProjectTestProjectTest65KeywordaddShiftKey.robot' does not exist.</msg>
+<msg time="2026-01-15T14:04:15.081378" level="ERROR">Error in file 'd:\workspace\MiniProjectTest\ProjectTest65\TestCase\addShiftTest.robot' on line 5: Resource file 'D:workspaceMiniProjectTestProjectTest65VariablesaddShiftVar.robot' does not exist.</msg>
 </errors>
 </robot>
