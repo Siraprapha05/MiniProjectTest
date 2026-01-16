@@ -127,15 +127,15 @@ Handle Alert And Validate
     [Arguments]    ${i}
     ${Expec}     Read Excel Cell    ${i}    13
     Sleep    4s
-    ${status}    ${result}    Run Keyword And Ignore Error    Handle Alert    accept    4s
-    Run Keyword If    '${status}'=='Pass'    Write Excel Cell    ${i}    14    ${result}    
+    ${status}    ${result}    Run Keyword And Ignore Error    Handle Alert    leave    4s
+    Run Keyword If    '${status}'=='PASS'    Write Excel Cell    ${i}    14    ${result}    
 
     ${locators}=    Create List
     ...    ${alertName}    ${alertPhone}    ${alertBirthday}    ${alertTerm}    ${alertStuID}
     ...    ${alertMajor}    ${alertFaculty}    ${alertReason}    ${alertEmail}    ${alertPassword}
     ${alert_text}    Get Visible Alert    ${locators}   
 
-    Run Keyword If    '${status}'!='Pass'    Write Excel Cell    ${i}    14    ${alert_text}
+    Run Keyword If    '${status}'!='PASS'    Write Excel Cell    ${i}    14    ${alert_text}
 
     IF    '${Expec}' in ['${result}', '${alert_text}']
         Write Excel Cell    ${i}    15    Pass

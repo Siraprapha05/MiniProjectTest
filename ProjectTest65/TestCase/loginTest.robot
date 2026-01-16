@@ -7,6 +7,7 @@ Resource    ../Keyword/loginKey.robot
 
 *** Test Cases ***
 Test Login
+  
     Launch Excel
     FOR    ${i}    IN RANGE    1    ${row}+1
         ${status}    Read Excel Cell    ${i}    1

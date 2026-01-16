@@ -74,41 +74,50 @@ Button Click
 
 Handle Alert And Validate
     [Arguments]    ${i}
-        ${Expec}    Read Excel Cell    ${i}    5
-        ${email}    Read Excel Cell    ${i}    3
-        ${password}    Read Excel Cell    ${i}    4
-        # ถ้าไม่กรอก
-        IF    '${email}' == '${NONE}' or '${email}' == '' or '${password}' == '${NONE}' or '${password}' == ''
-            ${alertMsg}=    Set Variable    Please fill out this field.
-            Log    ${alertMsg} (row ${i})
-            Write Excel Cell    ${i}    6    ${alertMsg}
-            Write Excel Cell    ${i}    7    Fail
-            RETURN
-        END
 
-        Sleep    3s
-        ${status1}=    Set Variable    Fail
-        ${alertMsg}=    Set Variable    ""
+    ${Expec}=       Read Excel Cell    ${i}    5
+    ${email}=       Read Excel Cell    ${i}    3
+    ${password}=    Read Excel Cell    ${i}    4
 
-        ${locAlert}=    Set Variable    (//div[contains(@class,'bg-light')]//p)[1]
-        ${waitStatus}    ${waitMsg}=    Run Keyword And Ignore Error    Wait Until Element Is Visible    ${locAlert}    8s
-
-        IF    $waitStatus == 'Pass'
-            ${statusMsg}    ${alertMsg}=    Run Keyword And Ignore Error    Get Text    ${locAlert}
-            IF    ${statusMsg} != 'Pass'
-                ${alertMsg}=    Set Variable    Element found but text not readable
-            END
-        ELSE
-            ${alertMsg}=    Set Variable    No message found
-        END
+    # -------------------------------
+    # 1) ตรวจสอบกรณีไม่กรอก email / password
+    # -------------------------------
+    IF    '${email}' == '' or '${password}' == ''
+        ${alertMsg}=    Set Variable    Please fill out this field.
+        Log    ${alertMsg} (row ${i}-1)
         Write Excel Cell    ${i}    6    ${alertMsg}
+    END
 
-        IF    '${Expec}' == '${alertMsg}' or '${status1}' == 'Pass' 
-            Write Excel Cell    ${i}    7    Pass
-        ELSE
-            Write Excel Cell    ${i}    7    Fail
-            Capture Page Screenshot    ProjectTest65/imgLogin/error_${i}.png
-        END
+    Sleep    3s
+
+    ${alertMsg}=    Set Variable    No message found
+    ${status1}=     Set Variable    Fail
+
+    # -------------------------------
+    # 2) ตรวจสอบ Alert Message บนหน้าเว็บ
+    # -------------------------------
+    ${locAlert}=    Set Variable    //div[contains(@class,'bg-light')]//p[1]
+
+    ${waitStatus}=    Run Keyword And Return Status
+    ...    Wait Until Element Is Visible    ${locAlert}    8s
+
+    IF    ${waitStatus}
+        ${alertMsg}=    Get Text    ${locAlert}
+        ${status1}=     Set Variable    PASS
+    END
+
+    Write Excel Cell    ${i}    6    ${alertMsg}
+
+    # -------------------------------
+    # 3) เปรียบเทียบผลลัพธ์กับ Expected
+    # -------------------------------
+    IF    '${Expec}' == '${alertMsg}'
+        Write Excel Cell    ${i}    7    Pass
+    ELSE
+        Write Excel Cell    ${i}    7    Fail
+        Capture Page Screenshot    ProjectTest65/imgLogin/error_${i}.png
+    END
+
 
 Browser Close
     Sleep    2s
