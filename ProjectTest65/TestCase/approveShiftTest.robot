@@ -1,21 +1,21 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
-Resource    ../Keyword/addShiftKey.robot
-Resource    ../Variables/addShiftVar.robot
+Resource    ../Keyword/approveShiftKey.robot
+Resource    ../Variables/approveShiftVar.robot
 
 *** Test Cases ***
-Test Add Shift 
+Test Approve ShiftVar
     Launch Excel
     FOR    ${i}    IN RANGE    2    ${row}+1
        ${status}    Read Excel Cell    ${i}    1 
        IF    '${status}' == 'Y'
             Launch Browser and Navigate to Url
-            Login Input    ${i}
+            Input Login Form    ${i}
             Button Click Login
-            Click Link Add Shift
+            Click Link Shift
 
-            # Handle Alert And Validate    ${i}
+            Handle Alert And Validate    ${i}
             Browser Close  
        END
     END

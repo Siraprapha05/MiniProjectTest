@@ -4,4 +4,14 @@ ${browser}    chrome
 
 ${DataTable}    ProjectTest65/Excel/SetPermissions.xlsx
 ${sheet}    SetPermissions
-${row}    4
+${row}    3
+
+${locbtnLogin}    //input[@value='Login']
+${locSetpermission}    //select[@id='setpermission']
+
+${MouseOver}    //a[contains(text(),'ข้อมูลโครงการ')]
+${clickLink}    //a[contains(text(),'รายชื่อนักศึกษาโครงการ')]
+
+${lonbtn}    //a[@class='btn btn-warning'][contains(text(),'ดูรายละเอียด')][1]
+
+${locSubmit}    //button[@id='submit']
