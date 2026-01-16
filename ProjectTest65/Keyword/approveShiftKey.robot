@@ -41,20 +41,22 @@ Handle Alert And Validate
 
     IF    ${hasApprove}
         Click Element    ${approve}
+        Write Excel Cell    ${i}    5    ${ActualResult}
     ELSE IF    ${hasReject}
         Click Element    ${reject}
+        Write Excel Cell    ${i}    5    ${ActualResult}
     END
 
-    ${status}    ${alert_text}=    Run Keyword And Ignore Error
-    ...    Handle Alert    accept    5s
+    ${status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    accept    5s
 
     IF    '${status}' == 'PASS'
         ${ActualResult}=    Set Variable    ${alert_text}
+        Write Excel Cell    ${i}    5    ${ActualResult}
     ELSE
         ${ActualResult}=    Set Variable    no message
+        Write Excel Cell    ${i}    5    ${ActualResult}
     END
 
-    Write Excel Cell    ${i}    5    ${ActualResult}
        
     ${ActualResult}=    Read Excel Cell    ${i}    5
 
