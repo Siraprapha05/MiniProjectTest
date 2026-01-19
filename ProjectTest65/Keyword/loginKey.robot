@@ -79,9 +79,6 @@ Handle Alert And Validate
     ${email}=       Read Excel Cell    ${i}    3
     ${password}=    Read Excel Cell    ${i}    4
 
-    # -------------------------------
-    # 1) ตรวจสอบกรณีไม่กรอก email / password
-    # -------------------------------
     IF    '${email}' == '' or '${password}' == ''
         ${alertMsg}=    Set Variable    Please fill out this field.
         Log    ${alertMsg} (row ${i}-1)
@@ -92,10 +89,6 @@ Handle Alert And Validate
 
     ${alertMsg}=    Set Variable    No message found
     ${status1}=     Set Variable    Fail
-
-    # -------------------------------
-    # 2) ตรวจสอบ Alert Message บนหน้าเว็บ
-    # -------------------------------
     ${locAlert}=    Set Variable    //div[contains(@class,'bg-light')]//p[1]
 
     ${waitStatus}=    Run Keyword And Return Status
