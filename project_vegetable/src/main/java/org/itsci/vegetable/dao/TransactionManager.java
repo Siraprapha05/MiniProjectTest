@@ -392,7 +392,7 @@ public class TransactionManager {
 		return tsd;
 	}*/
 	
-	public List<Transaction_details> transaction_by_search(String t,String d,String term,String year) {
+		public List<Transaction_details> transaction_by_search(String t,String d,String term,String year) {
 		List<Transaction_details> td = new Vector<>();
 		ConnectionDB condb = new ConnectionDB();
 		Connection con = condb.getConnection();
@@ -401,19 +401,19 @@ public class TransactionManager {
 			Statement stmt = con.createStatement();
 			String sql = "";
 			if(t.equals("1")&& !d.equals("")) {
-				 sql = "select td.transaction_detail_id,td.amount,td.sum,td.type,td.asset_id,td.transaction_id,sum(td.sum) "
+				 sql = "select ANY_VALUE(td.transaction_detail_id),ANY_VALUE(td.amount),ANY_VALUE(td.sum),ANY_VALUE(td.type),ANY_VALUE(td.asset_id),ANY_VALUE(td.transaction_id),sum(td.sum) "
 						+ " from transaction_details td inner join transaction t on t.transaction_id = td.transaction_id   "
 						+ "where CAST(t.date_time AS date) = '"+d+"' and year(t.date_time) = '"+year+"' and t.term = "+term+" group by CAST(t.date_time AS date);";
 			}else if(!t.equals("1")&& d.equals("")){
-				 sql = "select td.transaction_detail_id,td.amount,td.sum,td.type,td.asset_id,td.transaction_id,sum(td.sum) "
+				 sql = "select ANY_VALUE(td.transaction_detail_id),ANY_VALUE(td.amount),ANY_VALUE(td.sum),ANY_VALUE(td.type),ANY_VALUE(td.asset_id),ANY_VALUE(td.transaction_id),sum(td.sum) "
 							+ " from transaction_details td inner join transaction t on t.transaction_id = td.transaction_id   "
 							+ "where td.type = '"+t+"' and year(t.date_time) = '"+year+"' and t.term = "+term+" group by CAST(t.date_time AS date);";
 			}else if(t.equals("1")&& d.equals("")){
-				 sql = "select td.transaction_detail_id,td.amount,td.sum,td.type,td.asset_id,td.transaction_id,sum(td.sum) "
+				 sql = "select ANY_VALUE(td.transaction_detail_id),ANY_VALUE(td.amount),ANY_VALUE(td.sum),ANY_VALUE(td.type),ANY_VALUE(td.asset_id),ANY_VALUE(td.transaction_id),sum(td.sum) "
 						+ " from transaction_details td inner join transaction t on t.transaction_id = td.transaction_id   "
-						+ "where and year(t.date_time) = '"+year+"' and t.term = "+term+" group by CAST(t.date_time AS date);";
+						+ "where year(t.date_time) = '"+year+"' and t.term = "+term+" group by CAST(t.date_time AS date);";
 			}else {
-				 sql = "select td.transaction_detail_id,td.amount,td.sum,td.type,td.asset_id,td.transaction_id,sum(td.sum) "
+				 sql = "select ANY_VALUE(td.transaction_detail_id),ANY_VALUE(td.amount),ANY_VALUE(td.sum),ANY_VALUE(td.type),ANY_VALUE(td.asset_id),ANY_VALUE(td.transaction_id),sum(td.sum) "
 						+ " from transaction_details td inner join transaction t on t.transaction_id = td.transaction_id   "
 						+ "where CAST(t.date_time AS date) = '"+d+"' and year(t.date_time) = '"+year+"' and t.term = "+term+" and td.type = '"+t+"' group by CAST(t.date_time AS date);";
 			}
@@ -442,6 +442,7 @@ public class TransactionManager {
 		}	
 		return td;
 	}
+
 	
 
 	public List<Transaction_details> transaction_details_by_search(String t,String d,String term,String year) {
