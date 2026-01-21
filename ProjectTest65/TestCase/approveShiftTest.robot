@@ -5,7 +5,7 @@ Resource    ../Keyword/approveShiftKey.robot
 Resource    ../Variables/approveShiftVar.robot
 
 *** Test Cases ***
-Test Approve ShiftVar
+Test Approve Shift
     Launch Excel
     FOR    ${i}    IN RANGE    2    ${row}+1
        ${status}    Read Excel Cell    ${i}    1 
@@ -14,7 +14,6 @@ Test Approve ShiftVar
             Input Login Form    ${i}
             Button Click Login
             Click Link Shift
-
             Handle Alert And Validate    ${i}
             Browser Close  
        END
