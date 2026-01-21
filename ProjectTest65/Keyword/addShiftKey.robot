@@ -117,6 +117,7 @@ Handle Alert And Validate
                 ${ActualResult}=    Set Variable    ${EMPTY} 
             END
         END
+        
     IF    '${ExpectedResult}' == '${ActualResult}' or '${ExpectedResult}' == '${alert_text}'
         Write Excel Cell    ${i}    11    Pass
     ELSE

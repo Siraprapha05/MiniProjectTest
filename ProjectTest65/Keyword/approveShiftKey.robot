@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    ExcelLibrary
-Library    XML
 Resource    ../TestCase/approveShiftTest.robot
 
 *** Keywords ***
@@ -14,8 +13,8 @@ Launch Excel
 
 Input Login Form
     [Arguments]    ${i}
-    Input Text    //input[@id="email"]    mju6204106317@mju.ac.th
-    Input Text    //input[@id="pwd"]    111111
+    Input Text    ${locEmail}    mju6204106317@mju.ac.th
+    Input Text    ${locPassword}    111111
 
 
 Button Click Login

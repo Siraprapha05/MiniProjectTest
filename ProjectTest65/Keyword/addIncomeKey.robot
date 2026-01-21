@@ -69,7 +69,6 @@ Handle Alert And Validate
     [Arguments]    ${i}
 
     ${ExpectedResult}=    Read Excel Cell    ${i}    7
-    ${ActualResult}=      Set Variable    ${EMPTY}
 
     ${hasSum}=    Run Keyword And Return Status
     ...    Wait Until Element Is Visible    //input[@id='sum']    5s
