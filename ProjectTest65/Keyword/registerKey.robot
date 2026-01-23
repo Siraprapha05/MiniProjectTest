@@ -2,8 +2,6 @@
 Library    SeleniumLibrary
 Library    ExcelLibrary
 Library    Collections
-Library    String
-Library    DateTime
 Resource    ../Variables/registerVar.robot
 
 *** Keywords ***
@@ -20,7 +18,7 @@ Input Form Fullname and Phone
         IF    '${name}' == '${NONE}'
             ${name}    Set Variable
         END
-        Input Text    ${locFullname}    ${name}    5s
+        Input Text    ${locFullname}    ${name}    
         ${tel}    Read Excel Cell    ${i}    4
         IF    '${tel}' == '${NONE}'
             ${tel}    Set Variable
@@ -44,7 +42,7 @@ Select Term
     [Arguments]    ${i}
     ${term}    Read Excel Cell    ${i}    6
     ${term}    Evaluate    str("${term}").strip()
-    Log    Term from Excel: ${term}
+    # Log    Term from Excel: ${term}
     Wait Until Page Contains    ปีการศึกษา/เทอม:
     Scroll Element Into View    ${locTerm}
     Wait Until Element Is Visible    ${locTerm}    2s
@@ -59,14 +57,14 @@ Select Term
         IF    '${stucode}' == '${NONE}'
             ${stucode}    Set Variable        
         END
-        Scroll Element Into View    ${locStudentid}
+        # Scroll Element Into View    ${locStudentid}
         Input Text    ${locStudentid}    ${stucode}
 
         ${Major}    Read Excel Cell    ${i}    8
         IF    '${Major}' == '${NONE}'
             ${Major}    Set Variable        
         END
-        Scroll Element Into View    ${locMajor}
+        # Scroll Element Into View    ${locMajor}
         Input Text    ${locMajor}    ${Major} 
 
 
@@ -75,7 +73,7 @@ Select Faculty
     ${faculty}    Read Excel Cell    ${i}    9
     ${faculty}    Evaluate    str("${faculty}").strip()
     Log    Faculty from Excel: ${faculty}
-    Scroll Element Into View    ${locFaculty}
+    # Scroll Element Into View    ${locFaculty}
     Wait Until Element Is Visible    ${locFaculty}    5s
     ${options}=    Get List Items    ${locFaculty}
     Log List    ${options}
@@ -88,14 +86,14 @@ Input Form
     IF    '${reason}' == '${NONE}'
         ${reason}    Set Variable        
     END
-    Scroll Element Into View    ${locReason}
+    # Scroll Element Into View    ${locReason}
     Input Text    ${locReason}    ${reason}
 
     ${email}    Read Excel Cell    ${i}    11
     IF    '${email}' == '${NONE}'
         ${email}    Set Variable                
     END
-    Scroll Element Into View    ${locemail}
+    # Scroll Element Into View    ${locemail}
     Input Text    ${locemail}    ${email}
 
     ${password}    Read Excel Cell    ${i}    12
@@ -108,8 +106,11 @@ Input Form
 
 
 Button Click 
-    Execute JavaScript    document.getElementById('footer').style.display='none';
+    Execute JavaScript    window.scrollTo(0, document.body.scrollHeight);
+    Wait Until Page Contains    ลงทะเบียน
+    # Sleep    0.5s
     Click Button    ${locbtn}
+
 
 
 Get Visible Alert
@@ -126,8 +127,8 @@ Get Visible Alert
 Handle Alert And Validate
     [Arguments]    ${i}
     ${Expec}     Read Excel Cell    ${i}    13
-    Sleep    4s
-    ${status}    ${result}    Run Keyword And Ignore Error    Handle Alert    leave    4s
+    Sleep    1.5s
+    ${status}    ${result}    Run Keyword And Ignore Error    Handle Alert    leave    2s
     Run Keyword If    '${status}'=='PASS'    Write Excel Cell    ${i}    14    ${result}    
 
     ${locators}=    Create List
@@ -137,6 +138,18 @@ Handle Alert And Validate
 
     Run Keyword If    '${status}'!='PASS'    Write Excel Cell    ${i}    14    ${alert_text}
 
+    FOR    ${loc}    IN    @{locators}
+        ${isVisible}=    Run Keyword And Return Status
+        ...    Element Should Be Visible    ${loc}
+
+        IF    ${isVisible}
+            Scroll Element Into View    ${loc}
+            Sleep    3s
+            Exit For Loop
+        END
+    END
+
+
     IF    '${Expec}' in ['${result}', '${alert_text}']
         Write Excel Cell    ${i}    15    Pass
     ELSE
@@ -145,9 +158,8 @@ Handle Alert And Validate
     END
 
 Browser Close
-    Sleep    2s
+    Sleep    0.2s
     Close Browser
-    
 
 Save And Close Excel
     Save Excel Document    ${DataTable}    
