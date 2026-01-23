@@ -33,78 +33,49 @@ Button Click
     Click Button    ${locbtn}
     
 
-# Handle Alert And Validate
-#     [Arguments]    ${i}
-
-#     ${Expec}=    Read Excel Cell    ${i}    5 
-
-#     ${email}=    Read Excel Cell    ${i}    3
-#     ${password}=    Read Excel Cell    ${i}    4
-
-#     IF    '${email}' == '${NONE}' or '${email}' == '' or '${password}' == '${NONE}' or '${password}' == ''
-#         ${alertMsg}=    Set Variable    Please fill out this field.
-#         Log    ${alertMsg} (row ${i})
-#         Write Excel Cell    ${i}    6    ${alertMsg}   
-#         Write Excel Cell    ${i}    7    Fail        
-#         RETURN
-#     END
-#     Sleep    3s
-#     ${status}    ${alertMsg}=    Run Keyword And Ignore Error    Handle Alert    accept    4s
-#     ${statusMsg}    ${pageMsg}=    Run Keyword And Ignore Error    Get Text    xpath=//div[contains(@class,"bg-light")]/b/p
-
-#     ${statusalert}    ${result}    Run Keyword And Ignore Error    Handle Alert    accept    4s
-
-#     Run Keyword If    '${statusalert}'=='Pass'    Write Excel Cell    ${i}    6    ${result}    
-
-#     IF    '${statusMsg}' == 'Fail'
-#         ${alertMsg}=    Set Variable    เข้าสู่ระบบสำเร็จ
-#     ELSE
-#         ${alertMsg}=    Set Variable    ${pageMsg}
-#     END
-#     Run Keyword And Ignore Error    Write Excel Cell    ${i}    6    ${alertMsg}
-
-#     IF    $alertMsg == 'เข้าสู่ระบบสำเร็จ'
-#         Write Excel Cell    ${i}    7    Pass
-#     ELSE IF    '${Expec}' in [$alertMsg, '${statusalert}']
-#         Write Excel Cell    ${i}    7    Pass
-#     ELSE
-#         Write Excel Cell    ${i}    7    Fail
-#         Capture Page Screenshot    ProjectTest65\imgLogin/error_${i}.png
-#     END
-
 Handle Alert And Validate
     [Arguments]    ${i}
 
-    ${Expec}=       Read Excel Cell    ${i}    5
-    ${email}=       Read Excel Cell    ${i}    3
-    ${password}=    Read Excel Cell    ${i}    4
+    ${Expec}=        Read Excel Cell    ${i}    5
+    ${email}=        Read Excel Cell    ${i}    3
+    ${password}=     Read Excel Cell    ${i}    4
 
-    IF    '${email}' == '' or '${password}' == ''
-        ${alertMsg}=    Set Variable    Please fill out this field.
-        Log    ${alertMsg} (row ${i}-1)
-        Write Excel Cell    ${i}    6    ${alertMsg}
+    ${ActualMsg}=    Set Variable    ${EMPTY}
+    # ถ้าไม่กรอก
+    IF    '${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']
+        ${ActualMsg}=    Set Variable    Please fill out this field.
+        Write Excel Cell    ${i}    6    ${ActualMsg}
+        Write Excel Cell    ${i}    7    Fail
+        RETURN
     END
 
     Sleep    3s
 
-    ${alertMsg}=    Set Variable    No message found
-    ${status1}=     Set Variable    Fail
-    ${locAlert}=    Set Variable    //div[contains(@class,'bg-light')]//p[1]
+    # JS Alert
+    ${jsStatus}    ${jsAlert}=    Run Keyword And Ignore Error
+    ...    Handle Alert    ACCEPT    3s
 
-    ${waitStatus}=    Run Keyword And Return Status
-    ...    Wait Until Element Is Visible    ${locAlert}    8s
-
-    IF    ${waitStatus}
-        ${alertMsg}=    Get Text    ${locAlert}
-        ${status1}=     Set Variable    PASS
+    IF    '${jsStatus}' == 'PASS'
+        ${ActualMsg}=    Set Variable    ${jsAlert}
     END
 
-    Write Excel Cell    ${i}    6    ${alertMsg}
+    # Alert
+    IF    '${ActualMsg}' == ''
+        ${hasPage}=    Run Keyword And Return Status
+        ...    Wait Until Element Is Visible
+        ...    xpath=//div[contains(@class,"bg-light")]//p[1]    5s
+        IF    ${hasPage}
+            ${ActualMsg}=    Get Text    xpath=//div[contains(@class,"bg-light")]//p[1]
+        END
+    END
 
-    # -------------------------------
-    # 3) เปรียบเทียบผลลัพธ์กับ Expected
-    # -------------------------------
-    IF    '${Expec}' == '${alertMsg}'
+    IF    '${ActualMsg}' == ''
+        ${ActualMsg}=    Set Variable    เข้าสู่ระบบสำเร็จ
+    END
+
+    Write Excel Cell    ${i}    6    ${ActualMsg}
+
+    IF    '${Expec}' == '${ActualMsg}'
         Write Excel Cell    ${i}    7    Pass
     ELSE
         Write Excel Cell    ${i}    7    Fail
@@ -113,7 +84,6 @@ Handle Alert And Validate
 
 
 Browser Close
-    Sleep    2s
     Close Browser
     
 Save And Close Excel
