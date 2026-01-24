@@ -4,7 +4,7 @@ ${browser}    chrome
 
 ${DataTable}    ProjectTest65/Excel/Register.xlsx
 ${sheet}    Register
-${row}    86
+${row}    84
 
 ${locaPrefix}    //input[@id="prefix"]
 ${locFullname}    //input[@id='name']

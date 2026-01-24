@@ -13,21 +13,27 @@ Launch Excel
     Open Excel Document    ${DataTable}    ${sheet}
 
     
+# Login Input
+#     [Arguments]    ${i}
+#         ${email}    Read Excel Cell    ${i}    3
+#         IF    '${email}' == '${NONE}'
+#             ${email}    Set Variable                
+#         END
+#         Scroll Element Into View    ${locemail}
+#         Input Text    ${locemail}    ${email}
+
+#         ${password}    Read Excel Cell    ${i}    4
+#         IF    '${password}' == '${NONE}'
+#             ${password}    Set Variable                
+#         END
+#         Scroll Element Into View    ${locPassword}
+#         Input Password    ${locPassword}    ${password}
+
 Login Input
     [Arguments]    ${i}
-        ${email}    Read Excel Cell    ${i}    3
-        IF    '${email}' == '${NONE}'
-            ${email}    Set Variable                
-        END
-        Scroll Element Into View    ${locemail}
-        Input Text    ${locemail}    ${email}
+    Input Text    ${locEmail}    mju6204106317@mju.ac.th
+    Input Text    ${locPassword}    111111
 
-        ${password}    Read Excel Cell    ${i}    4
-        IF    '${password}' == '${NONE}'
-            ${password}    Set Variable                
-        END
-        Scroll Element Into View    ${locPassword}
-        Input Password    ${locPassword}    ${password}
 
 Button Click Login
     Click Button    ${locbtnLogin}
@@ -41,7 +47,7 @@ Click Income Link
     
 Select Order Name
     [Arguments]    ${i}
-        ${ProductName}    Read Excel Cell    ${i}    5
+        ${ProductName}    Read Excel Cell    ${i}    3
         ${ProductName}    Evaluate    str("${ProductName}").strip()
         Wait Until Page Contains    ชื่อสินค้า
         Scroll Element Into View    ${locProductName}
@@ -51,7 +57,7 @@ Select Order Name
   
 Input Amount
     [Arguments]    ${i}    
-        ${amount}    Read Excel Cell    ${i}    6
+        ${amount}    Read Excel Cell    ${i}    4
         IF    '${amount}' == '${NONE}'
             ${amount}    Set Variable        
         END
@@ -68,7 +74,7 @@ Input Amount
 Handle Alert And Validate
     [Arguments]    ${i}
 
-    ${ExpectedResult}=    Read Excel Cell    ${i}    7
+    ${ExpectedResult}=    Read Excel Cell    ${i}    5
 
     ${hasSum}=    Run Keyword And Return Status
     ...    Wait Until Element Is Visible    //input[@id='sum']    5s
@@ -99,15 +105,15 @@ Handle Alert And Validate
             ${ActualResult}=    Set Variable    ${sumValue}
         END
 
-        Write Excel Cell    ${i}    8    ${ActualResult}
+        Write Excel Cell    ${i}    6    ${ActualResult}
     END
 
-    ${ActualResult}=    Read Excel Cell    ${i}    8
+    ${ActualResult}=    Read Excel Cell    ${i}    6
 
     IF    '${ActualResult}' == '${ExpectedResult}'
-        Write Excel Cell    ${i}    9    Pass
+        Write Excel Cell    ${i}    7    Pass
     ELSE
-        Write Excel Cell    ${i}    9    Fail
+        Write Excel Cell    ${i}    7    Fail
         Capture Page Screenshot    ProjectTest65/imgAddIncome/error_${i}.png
     END
 
