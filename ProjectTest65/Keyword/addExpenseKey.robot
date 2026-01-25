@@ -99,7 +99,13 @@ Handle Alert And Validate
 
             ${hasErrorAmount}    Run Keyword And Return Status
             ...    Wait Until Element Is Visible    ${alertAmount}   3s
+            
+        # HTTP Status 500 – Internal Server Error
+        # ${is500}=    Run Keyword And Return Status    Page Should Contain    HTTP Status 500
 
+        # IF    ${is500}
+        #     ${ActualResult}=    Set Variable    HTTP Status 500 – Internal Server Error
+        # ELSE
             IF    ${hasErrorProduct}
                 ${ActualResult}=    Get Text    ${alertProduct_name}
             ELSE IF    ${hasErrorPrice}
@@ -108,22 +114,24 @@ Handle Alert And Validate
                 ${ActualResult}=    Get Text    ${alertAmount}
             ELSE
             ${ActualResult}=    Set Variable    ${sumValue}
+        # END  
         END      
         Write Excel Cell    ${i}    7    ${ActualResult}  
     END
 
     ${ActualResult}=    Read Excel Cell    ${i}    7
+    Log To Console    Row:${{${row}-1}}
 
     IF    '${ExpectedResult}' == '${ActualResult}'
         Write Excel Cell    ${i}    8    Pass
     ELSE
         Write Excel Cell    ${i}    8    Fail
+        Sleep    2s
         Capture Page Screenshot    ProjectTest65/imgAddExpense/error_${i}.png
     END
 
 
 Browser Close
-    Sleep    2s
     Close Browser
     
 Save And Close Excel
