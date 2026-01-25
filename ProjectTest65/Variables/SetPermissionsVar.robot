@@ -1,10 +1,12 @@
 *** Variables ***
-${url}    http://localhost:8080/vegetable/goLogin
+${url}    http://localhost:8080/vegetable/dologout
 ${browser}    chrome
 
 ${DataTable}    ProjectTest65/Excel/SetPermissions.xlsx
 ${sheet}    SetPermissions
 ${row}    3
+
+${locClickLogin}    //a[contains(text(),'เข้าสู่ระบบ')]
 
 ${locbtnLogin}    //input[@value='Login']
 ${locSetpermission}    //select[@id='setpermission']

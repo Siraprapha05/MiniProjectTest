@@ -11,6 +11,7 @@ Test Add Income
        ${status}    Read Excel Cell    ${i}    1 
        IF    '${status}' == 'Y'
             Launch Browser and Navigate to Url
+            Click Login Link
             Login Input    ${i}
             Button Click Login
             Sleep    1s

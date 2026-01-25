@@ -12,6 +12,15 @@ Launch Browser and Navigate to Url
 Launch Excel
     Open Excel Document    ${DataTable}    ${sheet}
 
+Click Login Link
+    Click Link    ${locClickLogin}
+
+
+Login Input
+    [Arguments]    ${i}
+    Input Text    ${locEmail}    mju6204106317@mju.ac.th
+    Input Text    ${locPassword}    111111
+
 # Login Input    
 #     [Arguments]    ${i}
 #         ${email}    Read Excel Cell    ${i}    3
@@ -27,12 +36,6 @@ Launch Excel
 #         END
 #         Scroll Element Into View    ${locPassword}
 #         Input Password    ${locPassword}    ${password}
-
-# 
-Login Input
-    [Arguments]    ${i}
-    Input Text    ${locEmail}    mju6204106317@mju.ac.th
-    Input Text    ${locPassword}    111111
 
 
 Button Click Login

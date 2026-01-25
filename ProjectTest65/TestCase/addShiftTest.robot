@@ -11,6 +11,7 @@ Test Add Shift
        ${status}    Read Excel Cell    ${i}    1 
        IF    '${status}' == 'Y'
             Launch Browser and Navigate to Url
+            Click Login Link
             Login Input    ${i}
             Button Click Login
             Click Link Add Shift

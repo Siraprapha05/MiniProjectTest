@@ -11,6 +11,9 @@ Launch Browser and Navigate to Url
 Launch Excel
     Open Excel Document    ${DataTable}    ${sheet}
 
+Click Login Link
+    Click Link    ${locClickLogin}
+
 Input Login Form
     [Arguments]    ${i}
     Input Text    ${locEmail}    officer1503@mju.ac.th

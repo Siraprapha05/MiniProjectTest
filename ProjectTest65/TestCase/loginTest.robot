@@ -12,6 +12,7 @@ Test Login
         ${status}    Read Excel Cell    ${i}    1
         IF    '${status}' == 'Y'
             Launch Browser and Navigate to Url
+            Click Login Link
             Input Form    ${i}
             Button Click 
             Handle Alert And Validate    ${i}

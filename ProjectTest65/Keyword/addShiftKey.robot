@@ -11,22 +11,32 @@ Launch Browser and Navigate to Url
 Launch Excel
     Open Excel Document    ${DataTable}    ${sheet}
 
+
+Click Login Link
+    Click Link    ${locClickLogin}
+
 Login Input
     [Arguments]    ${i}
+    Input Text    ${locEmail}    mju6204106317@mju.ac.th
+    Input Text    ${locPassword}    111111
 
-        ${email}    Read Excel Cell    ${i}    3
-        IF    '${email}' == '${NONE}'
-            ${email}    Set Variable                
-        END
-        Scroll Element Into View    ${locemail}
-        Input Text    ${locemail}    ${email}
+# Login Input
+#     [Arguments]    ${i}
 
-        ${password}    Read Excel Cell    ${i}    4
-        IF    '${password}' == '${NONE}'
-            ${password}    Set Variable                
-        END
-        Scroll Element Into View    ${locPassword}
-        Input Password    ${locPassword}    ${password}
+#         ${email}    Read Excel Cell    ${i}    3
+#         IF    '${email}' == '${NONE}'
+#             ${email}    Set Variable                
+#         END
+#         Scroll Element Into View    ${locemail}
+#         Input Text    ${locemail}    ${email}
+
+#         ${password}    Read Excel Cell    ${i}    4
+#         IF    '${password}' == '${NONE}'
+#             ${password}    Set Variable                
+#         END
+#         Scroll Element Into View    ${locPassword}
+#         Input Password    ${locPassword}    ${password}
+
 
 Button Click Login
     Click Button    ${locbtnLogin}

@@ -11,6 +11,7 @@ Test Approve Shift
        ${status}    Read Excel Cell    ${i}    1 
        IF    '${status}' == 'Y'
             Launch Browser and Navigate to Url
+            Click Login Link
             Input Login Form    ${i}
             Button Click Login
             Click Link Shift

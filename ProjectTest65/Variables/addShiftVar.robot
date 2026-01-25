@@ -1,10 +1,12 @@
 *** Variables ***
-${url}    http://localhost:8080/vegetable/goLogin
+${url}    http://localhost:8080/vegetable/dologout
 ${browser}    chrome
 
 ${DataTable}    ProjectTest65/Excel/AddShift.xlsx
 ${sheet}    AddShift
 ${row}    27
+
+${locClickLogin}    //a[contains(text(),'เข้าสู่ระบบ')]
 
 ${locEmail}    //input[@id="email"]
 ${locPassword}    //input[@id="pwd"]
