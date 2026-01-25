@@ -1,10 +1,12 @@
 *** Variables ***
-${url}    http://localhost:8080/vegetable/goRegister
+${url}    http://localhost:8080/vegetable/dologout
 ${browser}    chrome
 
 ${DataTable}    ProjectTest65/Excel/Register.xlsx
 ${sheet}    Register
 ${row}    84
+
+${locClickRegister}    //a[contains(text(),'ลงทะเบียน')]
 
 ${locaPrefix}    //input[@id="prefix"]
 ${locFullname}    //input[@id='name']

@@ -12,6 +12,9 @@ Launch Browser and Navigate to Url
 Launch Excel
     Open Excel Document    ${DataTable}    ${sheet}
 
+Click Register Link
+    Click Link    ${locClickRegister}
+
 Input Form Fullname and Phone
     [Arguments]    ${i}
         ${name}    Read Excel Cell    ${i}    3

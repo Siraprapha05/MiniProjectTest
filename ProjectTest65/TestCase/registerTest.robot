@@ -8,9 +8,11 @@ Resource    ../Keyword/registerKey.robot
 Test Register
     Launch Excel
     Launch Browser and Navigate to Url
+    
     FOR    ${i}    IN RANGE    2    ${row}+1
         ${status}    Read Excel Cell    ${i}    1
         IF    '${status}' == 'Y'
+            Click Register Link
             Input Form Fullname and Phone      ${i}
             Input Birthdate    ${i}
             Select Term    ${i}
