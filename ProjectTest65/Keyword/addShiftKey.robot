@@ -125,6 +125,8 @@ Handle Alert And Validate
                 Write Excel Cell     ${i}    8    ${ActualResult}
             ELSE
                 ${ActualResult}=    Set Variable    ${EMPTY} 
+                Log To Console    Row:${{${row}-1}}
+    
             END
         END
         

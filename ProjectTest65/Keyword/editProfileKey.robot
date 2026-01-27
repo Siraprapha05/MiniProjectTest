@@ -114,7 +114,8 @@ Handle Alert And Validate
     ...    ${alertName}    ${alertPhone}
     ${alert_text}=    Get Visible Alert    ${locators}
     Run Keyword If    '${status}' != 'PASS'    Write Excel Cell    ${i}    6    ${alert_text}
-
+    Log To Console    Row:${{${row}-1}}
+    
     IF    '${Expec}' in ['${result}', '${alert_text}']
         Write Excel Cell    ${i}    7    Pass
     ELSE

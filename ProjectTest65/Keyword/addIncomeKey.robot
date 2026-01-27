@@ -118,6 +118,8 @@ Handle Alert And Validate
             END
         END
         Write Excel Cell    ${i}    6    ${ActualResult}
+        Log To Console    Row:${{${row}-1}}
+    
     END
 
     ${ActualResult}=    Read Excel Cell    ${i}    6

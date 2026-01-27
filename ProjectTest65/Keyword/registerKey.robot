@@ -151,7 +151,8 @@ Handle Alert And Validate
             Exit For Loop
         END
     END
-
+    Log To Console    Row:${{${row}-1}}
+    
 
     IF    '${Expec}' in ['${result}', '${alert_text}']
         Write Excel Cell    ${i}    15    Pass

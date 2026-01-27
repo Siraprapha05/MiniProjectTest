@@ -77,7 +77,8 @@ Handle Alert And Validate
     END
 
     Write Excel Cell    ${i}    6    ${ActualMsg}
-
+    Log To Console    Row:${{${row}-1}}
+    
     IF    '${Expec}' == '${ActualMsg}'
         Write Excel Cell    ${i}    7    Pass
     ELSE

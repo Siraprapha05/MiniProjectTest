@@ -53,6 +53,7 @@ Handle Alert And Validate
 
     ${ActualResult}=    Set Variable    บันทึกข้อมูลสำเร็จ
     Write Excel Cell    ${i}    5    ${ActualResult}
+    Log To Console    Row:${{${row}-1}}
     
     IF    '${ActualResult}' == '${ExpectedResult}'
         Write Excel Cell    ${i}    6    Pass

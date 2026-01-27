@@ -61,7 +61,8 @@ Handle Alert And Validate
 
        
     ${ActualResult}=    Read Excel Cell    ${i}    5
-
+    Log To Console    Row:${{${row}-1}}
+    
     IF    '${ActualResult}' == '${ExpectedResult}'
         Write Excel Cell    ${i}    6    Pass
     ELSE
