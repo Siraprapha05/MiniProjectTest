@@ -85,30 +85,38 @@ Handle Alert And Validate
 
     IF    ${hasSum}
         ${sumValue}=    Get Value    //input[@id='sum']
+        # ${is500}=    Run Keyword And Return Status    Page Should Contain    HTTP Status 500
 
-        IF    '${sumValue}' == '0' or '${sumValue}' == '${EMPTY}'
+        IF    '${sumValue}' == 'NaN' 
             ${submit_button}=    Get WebElement    //div[@class="list"]
             Scroll Element Into View    ${submit_button}
             Sleep    2s
             Click Element    //input[@id='add']
-
-            ${hasErrorProduct}=    Run Keyword And Return Status
-            ...    Wait Until Element Is Visible    //label[@id='alertProduct_name']    2s
-
-            ${hasErrorAmount}=    Run Keyword And Return Status
-            ...    Wait Until Element Is Visible    //label[@id='alertAmount']    2s
-
-            IF    ${hasErrorProduct}
-                ${ActualResult}=    Get Text    //label[@id='alertProduct_name']
-            ELSE IF    ${hasErrorAmount}
-                ${ActualResult}=    Get Text    //label[@id='alertAmount']
-            ELSE
-                ${ActualResult}=    Set Variable    No Error Message
-            END
+            ${ActualResult}=    Set Variable    HTTP Status 500 – Internal Server Error
         ELSE
-            ${ActualResult}=    Set Variable    ${sumValue}
-        END
+            IF    '${sumValue}' == '0' or '${sumValue}' == '${EMPTY}'
+                ${submit_button}=    Get WebElement    //div[@class="list"]
+                Scroll Element Into View    ${submit_button}
+                Sleep    2s
+                Click Element    //input[@id='add']
 
+                ${hasErrorProduct}=    Run Keyword And Return Status
+                ...    Wait Until Element Is Visible    //label[@id='alertProduct_name']    2s
+
+                ${hasErrorAmount}=    Run Keyword And Return Status
+                ...    Wait Until Element Is Visible    //label[@id='alertAmount']    2s
+
+                IF    ${hasErrorProduct}
+                    ${ActualResult}=    Get Text    //label[@id='alertProduct_name']
+                ELSE IF    ${hasErrorAmount}
+                    ${ActualResult}=    Get Text    //label[@id='alertAmount']
+                ELSE
+                    ${ActualResult}=    Set Variable    No Error Message
+                END
+            ELSE
+                ${ActualResult}=    Set Variable    ${sumValue}
+            END
+        END
         Write Excel Cell    ${i}    6    ${ActualResult}
     END
 

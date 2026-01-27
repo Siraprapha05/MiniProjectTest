@@ -48,7 +48,7 @@ Click Link Add Shift
 
 Input Work Date
     [Arguments]    ${i}
-        ${birthdate}    Read Excel Cell    ${i}    5
+        ${birthdate}    Read Excel Cell    ${i}    3
         IF    '${birthdate}' != '${NONE}'
             ${date}    Evaluate    "${birthdate}".replace("/", "-")        
         ELSE
@@ -61,7 +61,7 @@ Input Work Date
 
 Input Start Time
     [Arguments]    ${i}
-        ${StartTime}    Read Excel Cell    ${i}    6
+        ${StartTime}    Read Excel Cell    ${i}    4
         IF    '${StartTime}' == '${NONE}'
             ${StartTime}    Set Variable
         END
@@ -70,7 +70,7 @@ Input Start Time
 
 Input End Time
     [Arguments]    ${i}
-        ${EndTime}    Read Excel Cell    ${i}    7
+        ${EndTime}    Read Excel Cell    ${i}    5
         IF    '${EndTime}' == '${NONE}'
             ${EndTime}    Set Variable
         END
@@ -78,7 +78,7 @@ Input End Time
 
 Input Role
     [Arguments]    ${i}
-        ${Role}    Read Excel Cell    ${i}    8
+        ${Role}    Read Excel Cell    ${i}    6
         IF    '${Role}' == '${NONE}'
             ${Role}    Set Variable
         END
@@ -92,21 +92,21 @@ Button Click
 Handle Alert And Validate
     [Arguments]    ${i}
 
-    ${ExpectedResult}=    Read Excel Cell    ${i}    9
+    ${ExpectedResult}=    Read Excel Cell    ${i}    7
     ${ActualResult}=      Set Variable    ${EMPTY}
 
     ${status}    ${alert_text}=    Run Keyword And Ignore Error    Handle Alert    leave    
-    Run Keyword If    '${status}'=='PASS'    Write Excel Cell    ${i}    10    ${alert_text}
+    Run Keyword If    '${status}'=='PASS'    Write Excel Cell    ${i}    8    ${alert_text}
 
         ${is500}=    Run Keyword And Return Status    Page Should Contain    HTTP Status 500
 
         IF    ${is500}
             ${ActualResult}=    Set Variable    HTTP Status 500 – Internal Server Error
-            Write Excel Cell     ${i}    10    ${ActualResult}
+            Write Excel Cell     ${i}    8    ${ActualResult}
         ELSE
 
-            ${start}=    Read Excel Cell    ${i}    6
-            ${end}=    Read Excel Cell    ${i}    7
+            ${start}=    Read Excel Cell    ${i}    4
+            ${end}=    Read Excel Cell    ${i}    5
             
             ${hasalertRole}=    Run Keyword And Return Status
             ...    Wait Until Element Is Visible    //label[@id="alertTask_name"]    2s
@@ -116,22 +116,22 @@ Handle Alert And Validate
 
             IF    '${start}' == '' or '${start}' == 'None' or '${end}' == '' or '${end}' == 'None'
                 ${ActualResult}=    Set Variable    Please fill out this field.
-                Write Excel Cell    ${i}    10    ${ActualResult}
+                Write Excel Cell    ${i}    8    ${ActualResult}
             ELSE IF    ${hasalertRole}
                 ${ActualResult}=    Get Text    //label[@id="alertTask_name"] 
-                Write Excel Cell     ${i}    10    ${ActualResult}
+                Write Excel Cell     ${i}    8    ${ActualResult}
             ELSE IF    ${hasalertText}
                 ${ActualResult}=    Get Text    //p[text()=' เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง !!!']
-                Write Excel Cell     ${i}    10    ${ActualResult}
+                Write Excel Cell     ${i}    8    ${ActualResult}
             ELSE
                 ${ActualResult}=    Set Variable    ${EMPTY} 
             END
         END
         
     IF    '${ExpectedResult}' == '${ActualResult}' or '${ExpectedResult}' == '${alert_text}'
-        Write Excel Cell    ${i}    11    Pass
+        Write Excel Cell    ${i}    9    Pass
     ELSE
-        Write Excel Cell    ${i}    11    Fail
+        Write Excel Cell    ${i}    9    Fail
         Capture Page Screenshot    ProjectTest65/imgAddShift/error_${i}.png
     END
 

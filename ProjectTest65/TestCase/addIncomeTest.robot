@@ -18,7 +18,6 @@ Test Add Income
             Click Income Link
             Select Order Name    ${i}
             Input Amount    ${i}  
-
             Handle Alert And Validate    ${i}
             Browser Close 
        END

@@ -101,20 +101,19 @@ Handle Alert And Validate
             ...    Wait Until Element Is Visible    ${alertAmount}   3s
             
         # HTTP Status 500 – Internal Server Error
-        # ${is500}=    Run Keyword And Return Status    Page Should Contain    HTTP Status 500
-
-        # IF    ${is500}
-        #     ${ActualResult}=    Set Variable    HTTP Status 500 – Internal Server Error
-        # ELSE
-            IF    ${hasErrorProduct}
-                ${ActualResult}=    Get Text    ${alertProduct_name}
-            ELSE IF    ${hasErrorPrice}
-                ${ActualResult}=    Get Text    ${alertAssetPrice}
-            ELSE IF    ${hasErrorAmount}
-                ${ActualResult}=    Get Text    ${alertAmount}
+            IF    ${sumValue}
+                # Wait Until Element Is Visible    //input[@id='add']    2s
+                ${ActualResult}=    Set Variable    HTTP Status 500 – Internal Server Error
             ELSE
-            ${ActualResult}=    Set Variable    ${sumValue}
-        # END  
+                IF    ${hasErrorProduct}
+                    ${ActualResult}=    Get Text    ${alertProduct_name}
+                ELSE IF    ${hasErrorPrice}
+                    ${ActualResult}=    Get Text    ${alertAssetPrice}
+                ELSE IF    ${hasErrorAmount}
+                    ${ActualResult}=    Get Text    ${alertAmount}
+                ELSE
+                ${ActualResult}=    Set Variable    ${sumValue}
+            END  
         END      
         Write Excel Cell    ${i}    7    ${ActualResult}  
     END

@@ -56,7 +56,7 @@ Handle Alert And Validate
 
     # JS Alert
     ${jsStatus}    ${jsAlert}=    Run Keyword And Ignore Error
-    ...    Handle Alert    ACCEPT    3s
+    ...    Handle Alert    ACCEPT    2s
 
     IF    '${jsStatus}' == 'PASS'
         ${ActualMsg}=    Set Variable    ${jsAlert}
@@ -66,7 +66,7 @@ Handle Alert And Validate
     IF    '${ActualMsg}' == ''
         ${hasPage}=    Run Keyword And Return Status
         ...    Wait Until Element Is Visible
-        ...    xpath=//div[contains(@class,"bg-light")]//p[1]    5s
+        ...    xpath=//div[contains(@class,"bg-light")]//p[1]    2s
         IF    ${hasPage}
             ${ActualMsg}=    Get Text    xpath=//div[contains(@class,"bg-light")]//p[1]
         END
