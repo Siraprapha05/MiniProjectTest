@@ -63,7 +63,7 @@ Handle Alert And Validate
         ${ActualResult}=    Get Value    ${locSum}
         Write Excel Cell    ${i}    5    ${ActualResult}
 
-        IF    '${ActualResult}' == '0'
+        IF    '${ActualResult}' == 'NaN'
             Click Element    //button[@type="submit"]
             Sleep    2s
 
@@ -77,7 +77,6 @@ Handle Alert And Validate
             END
         END
     ELSE
-        ${ActualResult}=    Set Variable    NOT FOUND
         Write Excel Cell    ${i}    5    ${ActualResult}
     END
     Log To Console    Row:${{${row}-1}}

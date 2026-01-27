@@ -101,7 +101,7 @@ Handle Alert And Validate
             ...    Wait Until Element Is Visible    ${alertAmount}   3s
             
         # HTTP Status 500 – Internal Server Error
-            IF    ${sumValue}
+            IF    '${sumValue}' == 'NaN'
                 # Wait Until Element Is Visible    //input[@id='add']    2s
                 ${ActualResult}=    Set Variable    HTTP Status 500 – Internal Server Error
             ELSE
