@@ -142,17 +142,6 @@ Handle Alert And Validate
 
     Run Keyword If    '${status}'!='PASS'    Write Excel Cell    ${i}    14    ${alert_text}
 
-    # FOR    ${loc}    IN    @{locators}
-    #     ${isVisible}=    Run Keyword And Return Status
-    #     ...    Element Should Be Visible    ${loc}
-
-    #     IF    ${isVisible}
-    #         Scroll Element Into View    ${loc}
-    #         Sleep    3s
-    #         Exit For Loop
-    #     END
-    # END
-
     IF    '${Expec}' in ['${result}', '${alert_text}']
         Execute JavaScript    window.scrollTo(0, ${locators});
         Sleep    1s
