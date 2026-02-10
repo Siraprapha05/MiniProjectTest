@@ -13,6 +13,7 @@ Launch Excel
     Open Excel Document    ${DataTable}    ${sheet}
 
 Click Register Link
+    Wait Until Element Is Visible    ${locClickRegister}    1.5s
     Click Link    ${locClickRegister}
 
 Input Form Fullname and Phone
@@ -141,23 +142,25 @@ Handle Alert And Validate
 
     Run Keyword If    '${status}'!='PASS'    Write Excel Cell    ${i}    14    ${alert_text}
 
-    FOR    ${loc}    IN    @{locators}
-        ${isVisible}=    Run Keyword And Return Status
-        ...    Element Should Be Visible    ${loc}
+    # FOR    ${loc}    IN    @{locators}
+    #     ${isVisible}=    Run Keyword And Return Status
+    #     ...    Element Should Be Visible    ${loc}
 
-        IF    ${isVisible}
-            Scroll Element Into View    ${loc}
-            Sleep    3s
-            Exit For Loop
-        END
-    END
-    Log To Console    Row:${{${row}-1}}
-    
+    #     IF    ${isVisible}
+    #         Scroll Element Into View    ${loc}
+    #         Sleep    3s
+    #         Exit For Loop
+    #     END
+    # END
 
     IF    '${Expec}' in ['${result}', '${alert_text}']
+        Execute JavaScript    window.scrollTo(0, ${locators});
+        Sleep    1s
         Write Excel Cell    ${i}    15    Pass
     ELSE
         Write Excel Cell    ${i}    15    Fail
+        Execute JavaScript    window.scrollTo(0, 0);
+        Sleep    2s
         Capture Page Screenshot    ProjectTest65/imgRegister/error_${i}.png
     END
 

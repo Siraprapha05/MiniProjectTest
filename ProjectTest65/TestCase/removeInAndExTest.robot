@@ -5,7 +5,7 @@ Resource    ../Keyword/removeInAndExKey.robot
 Resource    ../Variables/removeInAndExVar.robot
 
 *** Test Cases ***
-Test Edit Income And Expense 
+Test Remove Income And Expense
     Launch Excel
     FOR    ${i}    IN RANGE    2    ${row}+1
        ${status}    Read Excel Cell    ${i}    1 

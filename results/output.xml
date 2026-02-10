@@ -1,0 +1,3398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.0 on win32)" generated="2026-01-30T14:43:07.061316" rpa="false" schemaversion="5">
+<suite id="s1" name="loginTest" source="D:\workspace\MiniProjectTest\ProjectTest65\TestCase\loginTest.robot">
+<test id="s1-t1" name="Test Login" line="9">
+<kw name="Launch Excel" owner="loginKey">
+<kw name="Open Excel Document" owner="ExcelLibrary">
+<arg>${DataTable}</arg>
+<arg>${sheet}</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" start="2026-01-30T14:43:08.718410" elapsed="0.028500"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:08.716684" elapsed="0.030676"/>
+</kw>
+<kw name="Launch Browser and Navigate to Url" owner="loginKey">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:08.752550" level="INFO">Opening browser 'chrome' to base url 'http://localhost:8080/vegetable/dologout'.</msg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:43:08.751440" elapsed="4.339217"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-01-30T14:43:13.091035" elapsed="0.141993"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:08.750535" elapsed="4.482715"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:13.238403" level="INFO">${status} = Execute</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:13.237614" elapsed="0.000939"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<status status="NOT RUN" start="2026-01-30T14:43:13.239565" elapsed="0.000104"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2026-01-30T14:43:13.240327" elapsed="0.000153"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<status status="NOT RUN" start="2026-01-30T14:43:13.240828" elapsed="0.000082"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<arg>${i}</arg>
+<status status="NOT RUN" start="2026-01-30T14:43:13.241526" elapsed="0.000220"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:13.242395" elapsed="0.000130"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:13.238954" elapsed="0.003665"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:13.238892" elapsed="0.003812"/>
+</if>
+<var name="${i}">1</var>
+<status status="PASS" start="2026-01-30T14:43:13.237285" elapsed="0.006433"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:13.245588" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:13.244577" elapsed="0.001095"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:13.253241" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:13.251756" elapsed="2.877676"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:13.248999" elapsed="2.880766"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:16.132257" level="INFO">${email} = mju6204106317@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:16.131424" elapsed="0.000951"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:16.133259" elapsed="0.000099"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:16.132633" elapsed="0.001140"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:16.132587" elapsed="0.003307"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:43:16.136881" elapsed="0.336490"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:16.474282" level="INFO">Typing text 'mju6204106317@mju.ac.th' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:16.473753" elapsed="0.168034"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:16.642869" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:16.642304" elapsed="0.000630"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:16.643599" elapsed="0.000072"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:16.643146" elapsed="0.000627"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:16.643112" elapsed="0.000749"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:43:16.644057" elapsed="0.309643"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:16.954806" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:43:17.030055" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:16.954072" elapsed="0.176754"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:43:17.131540" elapsed="0.114169"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:43:16.130535" elapsed="1.115619"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:17.248921" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:17.248384" elapsed="0.549530"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:17.246772" elapsed="0.551401"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:17.800944" level="INFO">${Expec} = เข้าสู่ระบบสำเร็จ</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:17.800266" elapsed="0.000778"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:17.804143" level="INFO">${email} = mju6204106317@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:17.801438" elapsed="0.002795"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:17.807406" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:17.805225" elapsed="0.002265"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:43:17.810054" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:43:17.808598" elapsed="0.001552"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:17.816866" elapsed="0.000113"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:17.817922" elapsed="0.000117"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:17.818517" elapsed="0.000124"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-01-30T14:43:17.818863" elapsed="0.000099"/>
+</return>
+<status status="NOT RUN" start="2026-01-30T14:43:17.815464" elapsed="0.003617"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:17.815379" elapsed="0.003811"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T14:43:20.820219" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T14:43:17.819478" elapsed="3.000937"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:20.821641" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2026-01-30T14:43:23.647112" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:43:23.647495" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-01-30T14:43:20.821244" elapsed="2.834468">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:43:23.656053" level="INFO">${jsStatus} = FAIL</msg>
+<msg time="2026-01-30T14:43:23.656157" level="INFO">${jsAlert} = Alert not found in 2 seconds.</msg>
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T14:43:20.820803" elapsed="2.835433"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:23.657026" elapsed="0.000082"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:23.656488" elapsed="0.001087"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:23.656446" elapsed="0.001336"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:26.434945" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:43:26.435314" level="FAIL">Element 'xpath=//div[contains(@class,"bg-light")]//p[1]' not visible after 2 seconds.</msg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-30T14:43:23.659489" elapsed="2.778738">Element 'xpath=//div[contains(@class,"bg-light")]//p[1]' not visible after 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:43:26.438501" level="INFO">${hasPage} = False</msg>
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-30T14:43:23.658994" elapsed="2.779558"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:26.439112" elapsed="0.000069"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:26.438779" elapsed="0.000513"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:26.438739" elapsed="0.000645"/>
+</if>
+<status status="PASS" start="2026-01-30T14:43:23.657949" elapsed="2.781491"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:23.657882" elapsed="2.781626"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:43:26.440467" level="INFO">${ActualMsg} = เข้าสู่ระบบสำเร็จ</msg>
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:43:26.440122" elapsed="0.000412"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:26.439628" elapsed="0.001027"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:26.439597" elapsed="0.001214"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:26.441018" elapsed="0.000394"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T14:43:26.441603" elapsed="0.001130"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:26.443569" elapsed="0.000491"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:26.443006" elapsed="0.001193"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:26.444554" elapsed="0.000066"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:26.444870" elapsed="0.000054"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:26.444289" elapsed="0.000720"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:26.442960" elapsed="0.002123"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:43:17.799173" elapsed="8.646021"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:26.445688" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:43:26.445390" elapsed="0.603862"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:13.246067" elapsed="13.803380"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:13.246014" elapsed="13.803568"/>
+</if>
+<var name="${i}">2</var>
+<status status="PASS" start="2026-01-30T14:43:13.244199" elapsed="13.805467"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:27.051290" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:27.050574" elapsed="0.000821"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:27.059541" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:27.059056" elapsed="5.044797"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:27.052341" elapsed="5.052021"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:32.107123" level="INFO">${email} = Siraprapha005@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:32.106608" elapsed="0.000588"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:32.108126" elapsed="0.000107"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:32.107433" elapsed="0.000965"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:32.107388" elapsed="0.001101"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:43:32.108753" elapsed="0.284626"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:32.394111" level="INFO">Typing text 'Siraprapha005@mju.ac.th' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:32.393675" elapsed="0.135436"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:32.529848" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:32.529374" elapsed="0.000549"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:32.530492" elapsed="0.000044"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:32.530091" elapsed="0.000514"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:32.530060" elapsed="0.000602"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:43:32.530792" elapsed="0.283262"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:32.814899" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:43:32.863199" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:32.814438" elapsed="0.120019"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:43:32.934865" elapsed="0.034481"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:43:32.105113" elapsed="0.864507"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:32.970790" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:32.970455" elapsed="0.108494"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:32.969983" elapsed="0.109211"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:33.080901" level="INFO">${Expec} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:33.080554" elapsed="0.000402"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:33.081416" level="INFO">${email} = Siraprapha005@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:33.081161" elapsed="0.000313"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:33.082040" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:33.081748" elapsed="0.000356"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:43:33.083205" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:43:33.082309" elapsed="0.000952"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:33.084229" elapsed="0.000451"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:33.085207" elapsed="0.000084"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:33.085552" elapsed="0.000058"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-01-30T14:43:33.085741" elapsed="0.000078"/>
+</return>
+<status status="NOT RUN" start="2026-01-30T14:43:33.083538" elapsed="0.002368"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:33.083502" elapsed="0.002491"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T14:43:36.087191" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T14:43:33.086246" elapsed="3.001078"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:36.088175" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2026-01-30T14:43:47.039562" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-23.png"&gt;&lt;img src="selenium-screenshot-23.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:43:47.042429" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-01-30T14:43:36.087898" elapsed="11.026715">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:43:47.123111" level="INFO">${jsStatus} = FAIL</msg>
+<msg time="2026-01-30T14:43:47.138179" level="INFO">${jsAlert} = Alert not found in 2 seconds.</msg>
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T14:43:36.087555" elapsed="11.052460"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:47.152903" elapsed="0.000541"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:47.147868" elapsed="0.006497"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:47.147531" elapsed="0.007492"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:43:47.201604" elapsed="0.829136"/>
+</kw>
+<msg time="2026-01-30T14:43:48.039761" level="INFO">${hasPage} = True</msg>
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-30T14:43:47.181618" elapsed="0.858818"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:49.598058" level="INFO">${ActualMsg} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:48.090932" elapsed="1.507784"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:48.047478" elapsed="1.567762"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:48.047195" elapsed="1.568873"/>
+</if>
+<status status="PASS" start="2026-01-30T14:43:47.171737" elapsed="2.459116"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:47.171373" elapsed="2.460349"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:49.653585" elapsed="0.000571"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:49.640787" elapsed="0.025511"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:49.632389" elapsed="0.034633"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:49.676976" elapsed="0.034309"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T14:43:49.720866" elapsed="0.075381"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:49.856584" elapsed="0.034121"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:49.827011" elapsed="0.087995"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:49.962516" elapsed="0.000631"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:50.012469" elapsed="0.029616"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:49.915674" elapsed="0.131652"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:49.826714" elapsed="0.221295"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:43:33.079986" elapsed="17.018501"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:50.103216" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:43:50.101111" elapsed="0.190350"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:27.051692" elapsed="23.239939"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:27.051638" elapsed="23.240201"/>
+</if>
+<var name="${i}">3</var>
+<status status="PASS" start="2026-01-30T14:43:27.050204" elapsed="23.241702"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:50.293192" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:50.292648" elapsed="0.000621"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:50.295556" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:50.295026" elapsed="0.707769"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:50.294309" elapsed="0.708701"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:51.004657" level="INFO">${email} = mju6204106317@gmail.com</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:51.004240" elapsed="0.000512"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:51.005450" elapsed="0.000058"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:51.004964" elapsed="0.000643"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:51.004928" elapsed="0.000766"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:43:51.005888" elapsed="0.297486"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:51.304048" level="INFO">Typing text 'mju6204106317@gmail.com' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:51.303634" elapsed="0.158017"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:51.462900" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:51.462245" elapsed="0.000757"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:51.463984" elapsed="0.000077"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:51.463360" elapsed="0.000799"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:51.463301" elapsed="0.000928"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:43:51.464419" elapsed="0.288965"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:51.754052" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:43:51.835359" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:51.753627" elapsed="0.165577"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:43:51.919450" elapsed="0.026117"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:43:51.003536" elapsed="0.942342"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:51.947446" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:51.947007" elapsed="0.226729"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:51.946273" elapsed="0.227698"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:52.176461" level="INFO">${Expec} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:52.175994" elapsed="0.000541"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:52.177975" level="INFO">${email} = mju6204106317@gmail.com</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:52.177022" elapsed="0.001084"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:52.178933" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:52.178408" elapsed="0.000613"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:43:52.181408" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:43:52.179387" elapsed="0.002170"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:52.182448" elapsed="0.000106"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:52.183587" elapsed="0.000176"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:52.184590" elapsed="0.000106"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-01-30T14:43:52.184876" elapsed="0.000261"/>
+</return>
+<status status="NOT RUN" start="2026-01-30T14:43:52.181769" elapsed="0.003826"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:52.181733" elapsed="0.004924"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T14:43:55.190516" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T14:43:52.187478" elapsed="3.003171"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:55.191320" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2026-01-30T14:43:57.487277" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-24.png"&gt;&lt;img src="selenium-screenshot-24.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:43:57.487656" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-01-30T14:43:55.191109" elapsed="2.299082">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:43:57.490491" level="INFO">${jsStatus} = FAIL</msg>
+<msg time="2026-01-30T14:43:57.490598" level="INFO">${jsAlert} = Alert not found in 2 seconds.</msg>
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T14:43:55.190877" elapsed="2.299779"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:57.491330" elapsed="0.000052"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:57.490911" elapsed="0.000560"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:57.490868" elapsed="0.000660"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:43:57.499513" elapsed="0.021360"/>
+</kw>
+<msg time="2026-01-30T14:43:57.521130" level="INFO">${hasPage} = True</msg>
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-30T14:43:57.491904" elapsed="0.029294"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:57.542105" level="INFO">${ActualMsg} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:57.521813" elapsed="0.020390"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:57.521442" elapsed="0.021027"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:57.521397" elapsed="0.021177"/>
+</if>
+<status status="PASS" start="2026-01-30T14:43:57.491614" elapsed="0.051008"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:57.491593" elapsed="0.051083"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:57.543163" elapsed="0.000052"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:57.542789" elapsed="0.000545"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:57.542759" elapsed="0.000635"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:57.543529" elapsed="0.000362"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T14:43:57.544097" elapsed="0.001192"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:57.545918" elapsed="0.000302"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:57.545503" elapsed="0.000836"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:57.546641" elapsed="0.000044"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:57.546863" elapsed="0.000033"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:57.546428" elapsed="0.000527"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:57.545470" elapsed="0.001546"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:43:52.175190" elapsed="5.371941"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:57.547535" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:43:57.547325" elapsed="0.219069"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:50.293515" elapsed="7.473003"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:50.293470" elapsed="7.473113"/>
+</if>
+<var name="${i}">4</var>
+<status status="PASS" start="2026-01-30T14:43:50.292300" elapsed="7.474321"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:57.767293" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:57.767026" elapsed="0.000303"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:57.769400" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:57.768557" elapsed="0.393645"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:57.768029" elapsed="0.394330"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:58.163465" level="INFO">${email} = mju6204106317@holmail.com</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:58.163154" elapsed="0.000384"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:58.164008" elapsed="0.000039"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:58.163697" elapsed="0.000412"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:58.163668" elapsed="0.000496"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:43:58.164293" elapsed="0.299670"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:58.465049" level="INFO">Typing text 'mju6204106317@holmail.com' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:58.464364" elapsed="0.332338"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:58.797578" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:58.797076" elapsed="0.000592"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:58.798715" elapsed="0.000107"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:43:58.798046" elapsed="0.001046"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:58.797987" elapsed="0.001324"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:43:58.799699" elapsed="0.378761"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:59.179689" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:43:59.238803" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:59.178983" elapsed="0.223780"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:43:59.403131" elapsed="0.045756"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:43:58.162722" elapsed="1.286514"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:43:59.451088" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:43:59.450292" elapsed="0.235444"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:59.449638" elapsed="0.236335"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:59.688205" level="INFO">${Expec} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:59.687721" elapsed="0.000569"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:59.689542" level="INFO">${email} = mju6204106317@holmail.com</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:59.689027" elapsed="0.000588"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:43:59.690924" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:43:59.689947" elapsed="0.001073"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:43:59.692769" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:43:59.691407" elapsed="0.001458"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:59.694003" elapsed="0.000114"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:59.696151" elapsed="0.000156"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:43:59.696835" elapsed="0.000113"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-01-30T14:43:59.697519" elapsed="0.000103"/>
+</return>
+<status status="NOT RUN" start="2026-01-30T14:43:59.693141" elapsed="0.004587"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:59.693084" elapsed="0.004740"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T14:44:02.698968" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T14:43:59.698079" elapsed="3.001014"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:02.699682" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2026-01-30T14:44:05.799720" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-25.png"&gt;&lt;img src="selenium-screenshot-25.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:44:05.801357" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-01-30T14:44:02.699498" elapsed="3.125940">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:44:05.827555" level="INFO">${jsStatus} = FAIL</msg>
+<msg time="2026-01-30T14:44:05.828146" level="INFO">${jsAlert} = Alert not found in 2 seconds.</msg>
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T14:44:02.699309" elapsed="3.129187"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:05.837428" elapsed="0.001898"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:05.831211" elapsed="0.009299"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:05.830886" elapsed="0.010404"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:44:05.847024" elapsed="0.186600"/>
+</kw>
+<msg time="2026-01-30T14:44:06.035275" level="INFO">${hasPage} = True</msg>
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-30T14:44:05.844615" elapsed="0.191130"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:06.247816" level="INFO">${ActualMsg} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:06.041110" elapsed="0.207364"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:06.038707" elapsed="0.211603"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:06.038400" elapsed="0.212627"/>
+</if>
+<status status="PASS" start="2026-01-30T14:44:05.842261" elapsed="0.409374"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:05.842066" elapsed="0.410195"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:06.256754" elapsed="0.000637"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:06.253109" elapsed="0.005890"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:06.252923" elapsed="0.007167"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:06.261757" elapsed="0.002495"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T14:44:06.265693" elapsed="0.009303"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:06.282771" elapsed="0.002632"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:06.278047" elapsed="0.008410"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:06.292376" elapsed="0.001724"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:06.296246" elapsed="0.000644"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:06.287969" elapsed="0.009570"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:06.277770" elapsed="0.022039"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:43:59.686839" elapsed="6.614033"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:06.310828" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:44:06.307202" elapsed="13.169623"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:57.767472" elapsed="21.709569"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:43:57.767434" elapsed="21.709682"/>
+</if>
+<var name="${i}">5</var>
+<status status="PASS" start="2026-01-30T14:43:57.766880" elapsed="21.710275"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:19.478203" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:19.477628" elapsed="0.000653"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:19.480340" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:19.479718" elapsed="1.485764"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:19.479109" elapsed="1.486540"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:20.966741" level="INFO">${email} = mju620410631@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:20.966483" elapsed="0.000302"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:20.967245" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:20.966919" elapsed="0.000442"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:20.966894" elapsed="0.000558"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:20.967616" elapsed="0.283292"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:21.251969" level="INFO">Typing text 'mju620410631@mju.ac.th' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:21.251452" elapsed="0.245974"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:21.498283" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:21.497765" elapsed="0.000597"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:21.499186" elapsed="0.000079"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:21.498604" elapsed="0.000789"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:21.498561" elapsed="0.000929"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:21.499720" elapsed="0.295465"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:21.795893" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:44:21.833889" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:21.795490" elapsed="0.141337"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:44:21.937182" elapsed="0.025459"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:20.966025" elapsed="0.996907"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:21.964317" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:21.963877" elapsed="0.229823"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:21.963312" elapsed="0.230615"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:22.196856" level="INFO">${Expec} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:22.196157" elapsed="0.000786"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:22.197830" level="INFO">${email} = mju620410631@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:22.197324" elapsed="0.000583"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:22.198844" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:22.198223" elapsed="0.000829"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:44:22.200725" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:44:22.199636" elapsed="0.001199"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:22.202941" elapsed="0.000181"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:22.203466" elapsed="0.000110"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:22.205911" elapsed="0.000192"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-01-30T14:44:22.206340" elapsed="0.000824"/>
+</return>
+<status status="NOT RUN" start="2026-01-30T14:44:22.201093" elapsed="0.006581"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:22.201048" elapsed="0.006807"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T14:44:25.210789" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T14:44:22.209286" elapsed="3.002527"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:25.218946" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2026-01-30T14:44:28.500723" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-26.png"&gt;&lt;img src="selenium-screenshot-26.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:44:28.503274" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-01-30T14:44:25.216817" elapsed="3.326099">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:44:28.546193" level="INFO">${jsStatus} = FAIL</msg>
+<msg time="2026-01-30T14:44:28.547734" level="INFO">${jsAlert} = Alert not found in 2 seconds.</msg>
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T14:44:25.214190" elapsed="3.334111"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:28.555300" elapsed="0.000578"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:28.550305" elapsed="0.007140"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:28.549956" elapsed="0.009936"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:44:28.576945" elapsed="0.412285"/>
+</kw>
+<msg time="2026-01-30T14:44:28.991871" level="INFO">${hasPage} = True</msg>
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-30T14:44:28.567588" elapsed="0.424852"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:29.668803" level="INFO">${ActualMsg} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:29.006357" elapsed="0.662548"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:29.000963" elapsed="0.668107"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:29.000639" elapsed="0.668565"/>
+</if>
+<status status="PASS" start="2026-01-30T14:44:28.562845" elapsed="1.106433"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:28.562578" elapsed="1.106791"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:29.670073" elapsed="0.000121"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:29.669523" elapsed="0.000805"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:29.669483" elapsed="0.000935"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:29.670653" elapsed="0.000720"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T14:44:29.671723" elapsed="0.002167"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:29.674604" elapsed="0.000474"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:29.674140" elapsed="0.002434"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:29.677448" elapsed="0.000348"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:29.678119" elapsed="0.000073"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:29.677145" elapsed="0.001136"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:29.674100" elapsed="0.004241"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:22.195058" elapsed="7.483400"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:29.679070" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:44:29.678672" elapsed="0.039491"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:19.478517" elapsed="10.239820"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:19.478473" elapsed="10.239994"/>
+</if>
+<var name="${i}">6</var>
+<status status="PASS" start="2026-01-30T14:44:19.477433" elapsed="10.241111"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:29.720414" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:29.719533" elapsed="0.000975"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:29.739178" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:29.738470" elapsed="1.331187"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:29.736646" elapsed="1.333288"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:31.072568" level="INFO">${email} = mju62041063177@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:31.071965" elapsed="0.000695"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:31.073622" elapsed="0.000092"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:31.072950" elapsed="0.000864"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:31.072892" elapsed="0.000994"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:31.074156" elapsed="0.282262"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:31.357181" level="INFO">Typing text 'mju62041063177@mju.ac.th' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:31.356744" elapsed="0.243224"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:31.600653" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:31.600242" elapsed="0.000564"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:31.601475" elapsed="0.000066"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:31.601079" elapsed="0.000561"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:31.601044" elapsed="0.000671"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:31.601906" elapsed="0.324845"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:31.927861" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:44:32.044592" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:31.927200" elapsed="0.247293"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:44:32.174925" elapsed="0.026317"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:31.070971" elapsed="1.130472"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:32.203410" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:32.202543" elapsed="0.145126"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:32.201784" elapsed="0.146138"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:32.354170" level="INFO">${Expec} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:32.352076" elapsed="0.002179"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:32.356041" level="INFO">${email} = mju62041063177@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:32.354871" elapsed="0.001231"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:32.356712" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:32.356354" elapsed="0.000413"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:44:32.359709" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:44:32.357516" elapsed="0.002311"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:32.362352" elapsed="0.000148"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:32.362808" elapsed="0.000078"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:32.363279" elapsed="0.000116"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-01-30T14:44:32.363573" elapsed="0.000102"/>
+</return>
+<status status="NOT RUN" start="2026-01-30T14:44:32.360078" elapsed="0.003693"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:32.360033" elapsed="0.003838"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T14:44:35.365789" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T14:44:32.364235" elapsed="3.001706"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:35.366741" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2026-01-30T14:44:37.523966" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-27.png"&gt;&lt;img src="selenium-screenshot-27.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:44:37.524175" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-01-30T14:44:35.366502" elapsed="2.159935">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:44:37.526657" level="INFO">${jsStatus} = FAIL</msg>
+<msg time="2026-01-30T14:44:37.526713" level="INFO">${jsAlert} = Alert not found in 2 seconds.</msg>
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T14:44:35.366224" elapsed="2.160521"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:37.527145" elapsed="0.000035"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:37.526885" elapsed="0.000352"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:37.526856" elapsed="0.000429"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:44:37.527830" elapsed="0.018064"/>
+</kw>
+<msg time="2026-01-30T14:44:37.546085" level="INFO">${hasPage} = True</msg>
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-30T14:44:37.527581" elapsed="0.018537"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:37.565117" level="INFO">${ActualMsg} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:37.546494" elapsed="0.018681"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:37.546248" elapsed="0.019058"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:37.546220" elapsed="0.019153"/>
+</if>
+<status status="PASS" start="2026-01-30T14:44:37.527350" elapsed="0.038157"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:37.527333" elapsed="0.038231"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:37.565954" elapsed="0.000045"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:37.565656" elapsed="0.000413"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:37.565630" elapsed="0.000488"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:37.566230" elapsed="0.000381"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T14:44:37.567063" elapsed="0.001146"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:37.568870" elapsed="0.000352"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:37.568425" elapsed="0.000912"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:37.569598" elapsed="0.000048"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:37.569843" elapsed="0.000100"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:37.569413" elapsed="0.000597"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:37.568386" elapsed="0.001668"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:32.349140" elapsed="5.220992"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:37.570445" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:44:37.570265" elapsed="0.383585"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:29.720881" elapsed="8.233210"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:29.720810" elapsed="8.233400"/>
+</if>
+<var name="${i}">7</var>
+<status status="PASS" start="2026-01-30T14:44:29.719022" elapsed="8.235274"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:37.955751" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:37.955156" elapsed="0.000710"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:37.957868" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:37.957379" elapsed="0.614737"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:37.956858" elapsed="0.615421"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:38.573612" level="INFO">${email} = mju6204106340@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:38.573093" elapsed="0.000592"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:38.575048" elapsed="0.000108"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:38.573940" elapsed="0.001327"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:38.573894" elapsed="0.001673"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:38.576008" elapsed="0.291289"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:38.867947" level="INFO">Typing text 'mju6204106340@mju.ac.th' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:38.867567" elapsed="0.280611"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:39.148861" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.148455" elapsed="0.000462"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:39.149635" elapsed="0.000041"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:39.149190" elapsed="0.000548"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:39.149140" elapsed="0.000648"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.149906" elapsed="0.302953"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:39.453480" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:44:39.492225" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.453087" elapsed="0.111733"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.565140" elapsed="0.041454"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:38.572644" elapsed="1.034157"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:39.608244" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.607800" elapsed="0.107957"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:39.607173" elapsed="0.108771"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:39.717363" level="INFO">${Expec} = ท่านยังไม่ได้รับการอนุมัติ</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.717088" elapsed="0.000318"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:39.717777" level="INFO">${email} = mju6204106340@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.717575" elapsed="0.000236"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:39.718450" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.718168" elapsed="0.000338"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:44:39.719665" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.718700" elapsed="0.001032"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:39.720939" elapsed="0.000108"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:39.721389" elapsed="0.000099"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:39.721806" elapsed="0.000080"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-01-30T14:44:39.722052" elapsed="0.000064"/>
+</return>
+<status status="NOT RUN" start="2026-01-30T14:44:39.719927" elapsed="0.002507"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:39.719891" elapsed="0.002659"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T14:44:42.723300" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T14:44:39.722759" elapsed="3.000677"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:42.724208" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="PASS" start="2026-01-30T14:44:42.723979" elapsed="0.007350"/>
+</kw>
+<msg time="2026-01-30T14:44:42.731546" level="INFO">${jsStatus} = PASS</msg>
+<msg time="2026-01-30T14:44:42.731609" level="INFO">${jsAlert} = ท่านยังไม่ได้รับการอนุมัติ</msg>
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T14:44:42.723710" elapsed="0.007931"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:44:42.733098" level="INFO">${ActualMsg} = ท่านยังไม่ได้รับการอนุมัติ</msg>
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:44:42.732297" elapsed="0.000883"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:42.731790" elapsed="0.001557"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:42.731758" elapsed="0.001683"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:42.734402" elapsed="0.000124"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:42.737040" elapsed="0.000138"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:42.734788" elapsed="0.002725"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:44:42.734740" elapsed="0.002910"/>
+</if>
+<status status="NOT RUN" start="2026-01-30T14:44:42.733708" elapsed="0.003995"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:42.733647" elapsed="0.004118"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:42.738498" elapsed="0.000093"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:42.737945" elapsed="0.000763"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:42.737895" elapsed="0.000902"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:42.739063" elapsed="0.000522"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T14:44:42.739946" elapsed="0.001406"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:42.742194" elapsed="0.000453"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:42.741661" elapsed="0.001135"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:42.743192" elapsed="0.000057"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:42.743571" elapsed="0.000078"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:42.742934" elapsed="0.000844"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:42.741613" elapsed="0.002256"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:39.716554" elapsed="3.027432"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:42.744434" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:44:42.744191" elapsed="1.230608"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:37.956307" elapsed="6.019334"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:37.956243" elapsed="6.022356"/>
+</if>
+<var name="${i}">8</var>
+<status status="PASS" start="2026-01-30T14:44:37.954798" elapsed="6.024538"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:43.996637" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:43.991665" elapsed="0.005873"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:44.141637" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:44.114116" elapsed="2.159240"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:44.024343" elapsed="2.256548"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:46.298809" level="INFO">${email} = None</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:46.294148" elapsed="0.005110"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:44:46.317773" level="INFO">${email} = </msg>
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:44:46.308624" elapsed="0.009633"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:46.301005" elapsed="0.017920"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:46.300379" elapsed="0.019085"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:46.321522" elapsed="0.628407"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:46.958767" level="INFO">Typing text '' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:46.952082" elapsed="1.083563"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:48.100933" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:48.081129" elapsed="0.020340"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:48.131370" elapsed="0.000661"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:48.114788" elapsed="0.018065"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:48.114483" elapsed="0.020650"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:48.152030" elapsed="0.595852"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:48.773887" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:44:49.467175" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:48.763239" elapsed="0.884550"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.648174" elapsed="0.051957"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:46.287017" elapsed="3.413362"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:49.702244" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.701647" elapsed="0.145115"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:49.700794" elapsed="0.146145"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:49.848669" level="INFO">${Expec} = กรุณากรอกข้อมูลอีเมล</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.848328" elapsed="0.000394"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:49.849805" level="INFO">${email} = None</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.849040" elapsed="0.000868"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:49.850768" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.850361" elapsed="0.000451"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:44:49.851810" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.851023" elapsed="0.000855"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:44:49.853330" level="INFO">${ActualMsg} = Please fill out this field.</msg>
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.852943" elapsed="0.000446"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.853621" elapsed="0.000463"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.854728" elapsed="0.000757"/>
+</kw>
+<return>
+<status status="PASS" start="2026-01-30T14:44:49.855919" elapsed="0.000196"/>
+</return>
+<status status="PASS" start="2026-01-30T14:44:49.852088" elapsed="0.004300"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:49.852042" elapsed="0.004453"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.856720" elapsed="0.000061"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.857085" elapsed="0.000078"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.857587" elapsed="0.000058"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:49.857377" elapsed="0.000351"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:44:49.857341" elapsed="0.000451"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.858074" elapsed="0.000051"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.858615" elapsed="0.000049"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:49.858292" elapsed="0.000443"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:44:49.858266" elapsed="0.000521"/>
+</if>
+<status status="NOT RUN" start="2026-01-30T14:44:49.857883" elapsed="0.000956"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:44:49.857859" elapsed="0.001033"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.859117" elapsed="0.000035"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:49.858965" elapsed="0.000247"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:44:49.858946" elapsed="0.000310"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.859353" elapsed="0.000031"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.859512" elapsed="0.000031"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.859749" elapsed="0.000034"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:49.859634" elapsed="0.000214"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.859997" elapsed="0.000060"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:49.860207" elapsed="0.000032"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:49.859895" elapsed="0.000397"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:44:49.859615" elapsed="0.000721"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:49.847632" elapsed="0.012798"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:49.860798" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:44:49.860578" elapsed="0.544046"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:44.004153" elapsed="6.400681"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:44.003820" elapsed="6.401124"/>
+</if>
+<var name="${i}">9</var>
+<status status="PASS" start="2026-01-30T14:44:43.984332" elapsed="6.420673"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:50.406101" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:50.405602" elapsed="0.000559"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:50.407993" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:50.407421" elapsed="0.398330"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:50.406896" elapsed="0.399020"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:50.807034" level="INFO">${email} = mju6204106317@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:50.806766" elapsed="0.000344"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:50.807591" elapsed="0.000047"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:50.807255" elapsed="0.000451"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:50.807226" elapsed="0.000537"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:50.807892" elapsed="0.291175"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:51.099858" level="INFO">Typing text 'mju6204106317@mju.ac.th' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:51.099409" elapsed="0.257096"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:51.357163" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:51.356806" elapsed="0.000406"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:51.357751" elapsed="0.000045"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:51.357375" elapsed="0.000493"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:51.357342" elapsed="0.000586"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:44:51.358092" elapsed="0.312265"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:51.671036" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:44:51.719013" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:51.670638" elapsed="0.128196"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:44:51.799114" elapsed="0.020027"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:50.806306" elapsed="1.013007"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:51.820207" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:44:51.819925" elapsed="0.203877"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:51.819570" elapsed="0.204600"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:52.040081" level="INFO">${Expec} = เข้าสู่ระบบสำเร็จ</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:52.035466" elapsed="0.004708"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:52.041716" level="INFO">${email} = mju6204106317@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:52.041154" elapsed="0.000651"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:44:52.042933" level="INFO">${password} = 111111</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:44:52.042250" elapsed="0.000840"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:44:52.048516" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:44:52.043780" elapsed="0.004818"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:52.054798" elapsed="0.000111"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:52.056188" elapsed="0.000335"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:52.062417" elapsed="0.000160"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-01-30T14:44:52.062779" elapsed="0.000068"/>
+</return>
+<status status="NOT RUN" start="2026-01-30T14:44:52.049871" elapsed="0.013065"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:52.049777" elapsed="0.013243"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T14:44:55.064023" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T14:44:52.063253" elapsed="3.000893"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:44:55.064717" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2026-01-30T14:44:57.666755" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-28.png"&gt;&lt;img src="selenium-screenshot-28.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:44:57.667002" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-01-30T14:44:55.064537" elapsed="2.604901">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:44:57.669633" level="INFO">${jsStatus} = FAIL</msg>
+<msg time="2026-01-30T14:44:57.669699" level="INFO">${jsAlert} = Alert not found in 2 seconds.</msg>
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T14:44:55.064358" elapsed="2.605373"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:44:57.670137" elapsed="0.000036"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:44:57.669863" elapsed="0.000366"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:57.669835" elapsed="0.000439"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:00.375403" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-29.png"&gt;&lt;img src="selenium-screenshot-29.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:45:00.375663" level="FAIL">Element 'xpath=//div[contains(@class,"bg-light")]//p[1]' not visible after 2 seconds.</msg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-01-30T14:44:57.670750" elapsed="2.706727">Element 'xpath=//div[contains(@class,"bg-light")]//p[1]' not visible after 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:45:00.377729" level="INFO">${hasPage} = False</msg>
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-30T14:44:57.670554" elapsed="2.707219"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:00.378211" elapsed="0.000045"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:00.377946" elapsed="0.000391"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:00.377913" elapsed="0.000484"/>
+</if>
+<status status="PASS" start="2026-01-30T14:44:57.670340" elapsed="2.708098"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:57.670323" elapsed="2.708166"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:45:00.379125" level="INFO">${ActualMsg} = เข้าสู่ระบบสำเร็จ</msg>
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:45:00.378849" elapsed="0.000339"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:00.378572" elapsed="0.000709"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:00.378552" elapsed="0.000792"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:00.379487" elapsed="0.000314"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T14:45:00.379979" elapsed="0.000906"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:00.381489" elapsed="0.000292"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:00.381100" elapsed="0.000772"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:00.382072" elapsed="0.000039"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:00.382274" elapsed="0.000037"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:00.381932" elapsed="0.000550"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:00.381057" elapsed="0.001482"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:44:52.028103" elapsed="8.354564"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:00.383100" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:45:00.382863" elapsed="0.317325"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:44:50.406404" elapsed="10.293911"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:44:50.406362" elapsed="10.294024"/>
+</if>
+<var name="${i}">10</var>
+<status status="PASS" start="2026-01-30T14:44:50.405384" elapsed="10.295048"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:00.702048" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:00.701404" elapsed="0.000706"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:00.704064" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:45:00.703733" elapsed="0.493091"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:00.703106" elapsed="0.493905"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:01.198172" level="INFO">${email} = mju6204106317@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:01.197861" elapsed="0.000357"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:01.198673" elapsed="0.000043"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:01.198362" elapsed="0.000420"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:01.198335" elapsed="0.000504"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:45:01.198968" elapsed="0.302651"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:01.502599" level="INFO">Typing text 'mju6204106317@mju.ac.th' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:45:01.501981" elapsed="0.250957"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:01.753873" level="INFO">${password} = 123456</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:01.753346" elapsed="0.000588"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:01.754683" elapsed="0.000161"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:01.754110" elapsed="0.000870"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:01.754073" elapsed="0.001057"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:45:01.755492" elapsed="0.304617"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:02.061427" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:45:02.109687" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:45:02.060608" elapsed="0.131484"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:45:02.192464" elapsed="0.026259"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:45:01.197398" elapsed="1.021632"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:02.220856" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:45:02.220337" elapsed="0.155969"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:02.219628" elapsed="0.156876"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:02.378478" level="INFO">${Expec} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:02.378062" elapsed="0.000488"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:02.379443" level="INFO">${email} = mju6204106317@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:02.378837" elapsed="0.000698"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:02.380560" level="INFO">${password} = 123456</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:02.379941" elapsed="0.000704"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:45:02.382173" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:45:02.381005" elapsed="0.001245"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:02.383177" elapsed="0.000099"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:02.384496" elapsed="0.000239"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:02.385055" elapsed="0.000161"/>
+</kw>
+<return>
+<status status="NOT RUN" start="2026-01-30T14:45:02.385438" elapsed="0.000109"/>
+</return>
+<status status="NOT RUN" start="2026-01-30T14:45:02.382496" elapsed="0.003139"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:02.382453" elapsed="0.003256"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-01-30T14:45:05.392962" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-01-30T14:45:02.386149" elapsed="3.009870"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Handle Alert" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:05.420856" level="INFO">HANDLE::&lt;class 'datetime.timedelta'&gt;::0:00:02</msg>
+<msg time="2026-01-30T14:45:08.785681" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-30.png"&gt;&lt;img src="selenium-screenshot-30.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-01-30T14:45:08.787033" level="FAIL">Alert not found in 2 seconds.</msg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Handles the current alert and returns its message.</doc>
+<status status="FAIL" start="2026-01-30T14:45:05.415376" elapsed="3.417352">Alert not found in 2 seconds.</status>
+</kw>
+<msg time="2026-01-30T14:45:08.835165" level="INFO">${jsStatus} = FAIL</msg>
+<msg time="2026-01-30T14:45:08.836333" level="INFO">${jsAlert} = Alert not found in 2 seconds.</msg>
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2026-01-30T14:45:05.402608" elapsed="3.439109"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:08.847452" elapsed="0.001600"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:08.844045" elapsed="0.006047"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:08.843715" elapsed="0.006937"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:45:08.859450" elapsed="0.293066"/>
+</kw>
+<msg time="2026-01-30T14:45:09.161102" level="INFO">${hasPage} = True</msg>
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2026-01-30T14:45:08.856345" elapsed="0.305277"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:09.412455" level="INFO">${ActualMsg} = Email หรือ Passwordไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</msg>
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:45:09.178851" elapsed="0.234226"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:09.170798" elapsed="0.244857"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:09.170289" elapsed="0.247538"/>
+</if>
+<status status="PASS" start="2026-01-30T14:45:08.851567" elapsed="0.567589"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:08.851264" elapsed="0.571816"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:09.463208" elapsed="0.002298"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:09.425333" elapsed="0.047078"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:09.425054" elapsed="0.048057"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:09.476947" elapsed="0.008959"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-01-30T14:45:09.501954" elapsed="0.015088"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:09.527795" elapsed="0.005684"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:09.522898" elapsed="0.011698"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:09.538781" elapsed="0.000832"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:09.546367" elapsed="0.002326"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:09.535442" elapsed="0.014611"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:09.522550" elapsed="0.028173"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:45:02.377387" elapsed="7.174302"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:09.562548" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:45:09.555560" elapsed="2.040147"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:00.702387" elapsed="10.893485"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:00.702349" elapsed="10.893633"/>
+</if>
+<var name="${i}">11</var>
+<status status="PASS" start="2026-01-30T14:45:00.701042" elapsed="10.895008"/>
+</iter>
+<iter>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:11.598938" level="INFO">${status} = Y</msg>
+<var>${status}</var>
+<arg>${i}</arg>
+<arg>1</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:11.596739" elapsed="0.002323"/>
+</kw>
+<if>
+<branch type="IF" condition="'${status}' == 'Y'">
+<kw name="Click Login Link" owner="loginKey">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:11.623182" level="INFO">Clicking link '//a[contains(text(),'เข้าสู่ระบบ')]'.</msg>
+<arg>${locClickLogin}</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:45:11.622411" elapsed="0.381858"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:11.600050" elapsed="0.404483"/>
+</kw>
+<kw name="Input Form" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:12.006393" level="INFO">${email} = mju6204106317@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:12.005888" elapsed="0.000573"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${email}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:12.007411" elapsed="0.000149"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:12.006797" elapsed="0.000934"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:12.006629" elapsed="0.001238"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locemail}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:45:12.008420" elapsed="0.377257"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:12.386752" level="INFO">Typing text 'mju6204106317@mju.ac.th' into text field '//input[@id="email"]'.</msg>
+<arg>${locemail}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:45:12.385989" elapsed="0.356342"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:12.743241" level="INFO">${password} = None</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:12.742752" elapsed="0.000552"/>
+</kw>
+<if>
+<branch type="IF" condition="'${password}' == '${NONE}'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:45:12.744624" level="INFO">${password} = </msg>
+<var>${password}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:45:12.744074" elapsed="0.000662"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:12.743490" elapsed="0.001424"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:12.743454" elapsed="0.001600"/>
+</if>
+<kw name="Scroll Element Into View" owner="SeleniumLibrary">
+<arg>${locPassword}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2026-01-30T14:45:12.745413" elapsed="0.307660"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:13.054208" level="INFO">Typing password into text field '//input[@id="pwd"]'.</msg>
+<msg time="2026-01-30T14:45:13.165058" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${locPassword}</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.053621" elapsed="0.240568"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locbtn}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.294573" elapsed="0.029459"/>
+</kw>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:45:12.005168" elapsed="1.319121"/>
+</kw>
+<kw name="Button Click" owner="loginKey">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:13.325769" level="INFO">Clicking button '//input[@type="submit"]'.</msg>
+<arg>${locbtn}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.325324" elapsed="0.222625"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:13.324690" elapsed="0.223505"/>
+</kw>
+<kw name="Handle Alert And Validate" owner="loginKey">
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:13.550806" level="INFO">${Expec} = กรุณากรอกรหัสผ่าน</msg>
+<var>${Expec}</var>
+<arg>${i}</arg>
+<arg>5</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.550103" elapsed="0.000873"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:13.551796" level="INFO">${email} = mju6204106317@mju.ac.th</msg>
+<var>${email}</var>
+<arg>${i}</arg>
+<arg>3</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.551336" elapsed="0.000530"/>
+</kw>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2026-01-30T14:45:13.553455" level="INFO">${password} = None</msg>
+<var>${password}</var>
+<arg>${i}</arg>
+<arg>4</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.552181" elapsed="0.001363"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:45:13.555318" level="INFO">${ActualMsg} = </msg>
+<var>${ActualMsg}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.553921" elapsed="0.001471"/>
+</kw>
+<if>
+<branch type="IF" condition="'${email}' in ['${NONE}',''] or '${password}' in ['${NONE}','']">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-01-30T14:45:13.556843" level="INFO">${ActualMsg} = Please fill out this field.</msg>
+<var>${ActualMsg}</var>
+<arg>Please fill out this field.</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.556510" elapsed="0.000418"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.557237" elapsed="0.000653"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.558278" elapsed="0.001046"/>
+</kw>
+<return>
+<status status="PASS" start="2026-01-30T14:45:13.559723" elapsed="0.000122"/>
+</return>
+<status status="PASS" start="2026-01-30T14:45:13.555829" elapsed="0.004161"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:13.555775" elapsed="0.004301"/>
+</if>
+<kw name="Sleep" owner="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.560311" elapsed="0.000079"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<var>${jsStatus}</var>
+<var>${jsAlert}</var>
+<arg>Handle Alert</arg>
+<arg>ACCEPT</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.560670" elapsed="0.000061"/>
+</kw>
+<if>
+<branch type="IF" condition="'${jsStatus}' == 'PASS'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>${jsAlert}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.561182" elapsed="0.000058"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:13.560946" elapsed="0.000392"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:45:13.560888" elapsed="0.000522"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${hasPage}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<arg>2s</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.561822" elapsed="0.000066"/>
+</kw>
+<if>
+<branch type="IF" condition="${hasPage}">
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${ActualMsg}</var>
+<arg>xpath=//div[contains(@class,"bg-light")]//p[1]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.562396" elapsed="0.000493"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:13.562135" elapsed="0.000942"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:45:13.562096" elapsed="0.001269"/>
+</if>
+<status status="NOT RUN" start="2026-01-30T14:45:13.561556" elapsed="0.002272"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:45:13.561519" elapsed="0.002487"/>
+</if>
+<if>
+<branch type="IF" condition="'${ActualMsg}' == ''">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${ActualMsg}</var>
+<arg>เข้าสู่ระบบสำเร็จ</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.564447" elapsed="0.000123"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:13.564179" elapsed="0.000531"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:45:13.564132" elapsed="0.000668"/>
+</if>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>6</arg>
+<arg>${ActualMsg}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.565151" elapsed="0.000087"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Row:${{${row}-1}}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.565508" elapsed="0.000067"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Expec}' == '${ActualMsg}'">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Pass</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.566007" elapsed="0.000280"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:13.565753" elapsed="0.001784"/>
+</branch>
+<branch type="ELSE">
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${i}</arg>
+<arg>7</arg>
+<arg>Fail</arg>
+<doc>Writes value to the cell.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.567897" elapsed="0.000056"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<arg>ProjectTest65/imgLogin/error_${i}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" start="2026-01-30T14:45:13.568219" elapsed="0.000119"/>
+</kw>
+<status status="NOT RUN" start="2026-01-30T14:45:13.567648" elapsed="0.000806"/>
+</branch>
+<status status="NOT RUN" start="2026-01-30T14:45:13.565717" elapsed="0.002811"/>
+</if>
+<arg>${i}</arg>
+<status status="PASS" start="2026-01-30T14:45:13.549181" elapsed="0.019504"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-01-30T14:45:13.569873" level="INFO">Opening url 'http://localhost:8080/vegetable/dologout'</msg>
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-01-30T14:45:13.569281" elapsed="1.373549"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:11.599374" elapsed="3.343599"/>
+</branch>
+<status status="PASS" start="2026-01-30T14:45:11.599315" elapsed="3.343730"/>
+</if>
+<var name="${i}">12</var>
+<status status="PASS" start="2026-01-30T14:45:11.596473" elapsed="3.346622"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>${row}+1</value>
+<status status="PASS" start="2026-01-30T14:43:13.236381" elapsed="121.706829"/>
+</for>
+<kw name="Browser Close" owner="loginKey">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-01-30T14:45:14.951245" elapsed="3.142060"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:14.950642" elapsed="3.142945"/>
+</kw>
+<kw name="Save And Close Excel" owner="loginKey">
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${DataTable}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="PASS" start="2026-01-30T14:45:18.094706" elapsed="0.045494"/>
+</kw>
+<kw name="Close Current Excel Document" owner="ExcelLibrary">
+<doc>Closes current document.</doc>
+<status status="PASS" start="2026-01-30T14:45:18.140557" elapsed="0.000304"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:45:18.094140" elapsed="0.046881"/>
+</kw>
+<status status="PASS" start="2026-01-30T14:43:08.715380" elapsed="129.426152"/>
+</test>
+<status status="PASS" start="2026-01-30T14:43:07.095784" elapsed="131.046996"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="loginTest">loginTest</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-01-30T14:43:07.091482" level="ERROR">Taking listener 'ProjectTest65\listener.py' into use failed: Importing listener 'ProjectTest65\listener.py' failed: ModuleNotFoundError: No module named 'ProjectTest65\\listener'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\acer\AppData\Local\Programs\Python\Python313\Scripts\robot.exe
+  C:\Users\acer\AppData\Local\Programs\Python\Python313\python313.zip
+  C:\Users\acer\AppData\Local\Programs\Python\Python313\DLLs
+  C:\Users\acer\AppData\Local\Programs\Python\Python313\Lib
+  C:\Users\acer\AppData\Local\Programs\Python\Python313
+  C:\Users\acer\AppData\Local\Programs\Python\Python313\Lib\site-packages</msg>
+<msg time="2026-01-30T14:43:08.712960" level="ERROR">Error in file 'D:\workspace\MiniProjectTest\ProjectTest65\Keyword\loginKey.robot' on line 4: Error in file 'D:\workspace\MiniProjectTest\ProjectTest65\TestCase\loginTest.robot' on line 8: Resource file with 'Test Cases' section is invalid.</msg>
+</errors>
+</robot>

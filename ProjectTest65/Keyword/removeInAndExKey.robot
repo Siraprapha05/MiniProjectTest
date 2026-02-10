@@ -51,23 +51,27 @@ Handle Alert And Validate
         ${ActualResult}=    Set Variable    ต้องการลบใช่หรือไม่ ?
 
     ELSE IF    '${condition}' == 'ไม่ใช่'
+        Wait Until Element Is Visible    ${locCancel}    5s
+        Wait Until Element Is Enabled   ${locCancel}    5s
         Click Element    ${locCancel}
 
         ${isDataExist}=    Run Keyword And Return Status
-        ...    Page Should Contain    ข้อมูลอยู่ที่เดิม
+        ...    Page Should Contain    ข้อมูลเดิม
 
         IF    ${isDataExist}
             ${ActualResult}=    Set Variable    ข้อมูลจะต้องอยู่ที่เดิม
         END
 
     ELSE IF    '${condition}' == 'ใช่'
-        Click Element    ${locOK}
+        Wait Until Element Is Visible    ${locOK}    5s
+        Wait Until Element Is Enabled   ${locOK}    5s
+        Click Button    ${locOK}
 
         ${isDataGone}=    Run Keyword And Return Status
         ...    Page Should Not Contain    ข้อมูลถูกลบ
 
         IF    ${isDataGone}
-            ${ActualResult}=    Set Variable    ข้อมูลรายรับรายจ่ายของโครงการะหายไป
+            ${ActualResult}=    Set Variable    ข้อมูลรายรับรายจ่ายของโครงการหายไป
         END
     END
     Write Excel Cell    ${i}    5    ${ActualResult}

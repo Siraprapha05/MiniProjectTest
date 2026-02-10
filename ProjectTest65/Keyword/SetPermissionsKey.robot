@@ -26,7 +26,8 @@ Button Click Login
 
 
 Click Permissions Link
-    Mouse Over    ${MouseOver}
+    Wait Until Element Is Visible    ${MouseOver}    10s
+    Mouse Over    ${MouseOver}    
     Wait Until Element Is Visible    ${clickLink}    10s
     Click Element    ${clickLink}
     

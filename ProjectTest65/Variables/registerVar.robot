@@ -4,7 +4,7 @@ ${browser}    chrome
 
 ${DataTable}    ProjectTest65/Excel/Register.xlsx
 ${sheet}    Register
-${row}    84
+${row}    85
 
 ${locClickRegister}    //a[contains(text(),'ลงทะเบียน')]
 
