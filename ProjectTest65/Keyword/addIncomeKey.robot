@@ -69,11 +69,6 @@ Input Amount
         Input Text    ${locAmount}    ${amount}
 
 
-# Button Click Add
-#     ${submit_button}    Get WebElement    //div[@class="list"]
-#     Scroll Element Into View    ${submit_button}
-#     Sleep    2s
-#     Click Element    //input[@id='add']
 
 Handle Alert And Validate
     [Arguments]    ${i}
